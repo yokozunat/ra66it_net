@@ -1,0 +1,66 @@
+<h1><!-- BEGIN_MODULE Admin_Rule_Name -->
+	<strong>ルール : {name} の</strong><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+	<strong>モジュールID : {label} ( {identifier} ) の</strong><!-- END_MODULE Admin_Module_Name -->コンフィグ管理
+</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_Config -->
+<div class="titleWrapper">
+	<h2>APIキー設定</h2><!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+	<a href="/bid/%{BID}/admin/shortcut_edit/?rid=%{rid}&mid=%{mid}&action=Config&admin=%{ADMIN}&edit=add&step=reapply" class="shortcutBtn">ショートカットに追加</a><!-- END_MODULE Touch_SessionWithAdministration -->
+</div>
+<div class="contents">
+
+<form action="" method="post">
+	<p class="transaction-notice-{config:validator}">コンフィグを保存出来ませんでした。</label>
+
+	<h3>ウェブサービス</h3>
+	<table class="adminTable adminTableY">
+		<tr>
+			<th><a href="https://twitter.com/apps">Twitter API Key</a></th>
+			<td>
+    			<p>
+    				Consumer Key<br /><input type="text" name="twitter_consumer_key" value="{twitter_consumer_key}" size="60" />
+    				<input type="hidden" name="config[]" value="twitter_consumer_key" />
+    			</p>
+				<p>
+    				Consumer Secret<br /><input type="text" name="twitter_consumer_secret" value="{twitter_consumer_secret}" size="60" />
+    				<input type="hidden" name="config[]" value="twitter_consumer_secret" />
+                </p>
+				<p>
+    				Anywhere Consumer Key ( Version )<br /><input type="text" name="twitter_anywhere_key" value="{twitter_anywhere_key}" size="60" />&nbsp;( <input type="text" name="twitter_anywhere_version" value="{twitter_anywhere_version}" size="5" /> )
+    				<input type="hidden" name="config[]" value="twitter_anywhere_key" />
+    				<input type="hidden" name="config[]" value="twitter_anywhere_version" />
+                </p>
+			</td>
+		</tr>
+		<tr>
+			<th><a href="http://www.flickr.com/services/apps/">Flickr API Key</a></th>
+			<td>
+    			<p>
+    				Key<br /><input type="text" name="flickr_consumer_key" value="{flickr_consumer_key}" size="60" />
+    				<input type="hidden" name="config[]" value="flickr_consumer_key" />
+    			</p>
+				<p>
+    				Secret<br /><input type="text" name="flickr_consumer_secret" value="{flickr_consumer_secret}" size="60" />
+    				<input type="hidden" name="config[]" value="flickr_consumer_secret" />
+                </p>
+			</td>
+		</tr>
+	</table>
+
+	<!-- BEGIN_MODULE Admin_Rule_Name -->
+	<input type="hidden" name="rid" value="{rid}" /><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+	<input type="hidden" name="mid" value="{mid}" /><!-- END_MODULE Admin_Module_Name -->
+
+	<table class="adminTable">
+		<tr>
+			<td class="systemBtn">
+				<input type="submit" name="ACMS_POST_Config" value="保存" />
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+<!-- END_MODULE Admin_Config -->
+
+<!--#include file="/admin/tooltip/config/general.html"-->

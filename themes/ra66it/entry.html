@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--#include file="/include/head/metas.html"-->
+<!--#include file="/include/head/links.html"-->
+<!--#include file="/include/head/scripts.html"-->
+<!--#include file="/include/head/entryScripts.html"-->
+<title><!-- BEGIN_MODULE Touch_Entry -->%{ENTRY_TITLE} | <!-- END_MODULE Touch_Entry --><!-- BEGIN_MODULE Touch_Category -->%{CATEGORY_NAME} | <!-- END_MODULE Touch_Category -->%{BLOG_NAME}</title>
+</head>
+<body>
+<!-- 管理用パーツのインクルード -->
+<!--#include file="/admin/action.html"-->
+<div id="content">
+	<header id="banner" role="banner">
+		<h1 class="logo"><a href="%{BASE_URL}#%{EID}" rel="home">%{BLOG_NAME}</a></h1>
+	</header>
+	<div id="main" role="main">
+		<!-- BEGIN_MODULE Entry_Body -->
+		<!-- BEGIN notFound -->
+		<section>お探しのエントリーは見つかりませんでした。</section>
+		<!-- END notFound -->
+		<!-- BEGIN entry:loop -->
+		<article class="entry" id="%{EID}">
+			<!-- 編集時タイトルのインクルード -->
+			<!--#include file="/admin/entry/title.html"-->
+			<!-- BEGIN title --><header class="entryHeader"><h1 class="entryTitle"><a href="{titleUrl}">{title}[raw]</a></h1></header><!-- END title -->
+			<aside class="entryData webfonts-regular"><time class="entryDate" datetime="{date#Y}-{date#m}-{date#d}T{date#H}:{date#i}:{date#s}+09:00" pubdate>{date#Y}.{date#m}.{date#d}</time><!-- BEGIN category:veil --><p class="entryCategory"><!-- BEGIN category:loop --><a href="{url}">{name}</a><!-- BEGIN glue -->&lt;<!-- END glue --><!-- END category:loop --></p><!-- END category:veil --><!-- エントリーフッター開始▼▼ --><!-- BEGIN footer:veil --><p class="entryComment"><!-- BEGIN commentAmount --><small><a href="{commentUrl}#comment">comment ( {commentAmount} )</a></small><!-- END commentAmount --></p><!-- END footer:veil --><!-- エントリーフッター終了▲▲ --></aside>
+			
+			
+			
+			<div class="entryContent">
+			<!-- BEGIN column:veil -->
+			<!-- カラム表示のインクルード -->
+			<!--#include file="/include/column.html"-->
+			<!-- END column:veil -->
+			<!-- 「続きを読む」開始▼▼ -->
+			<!-- BEGIN continueLink:veil -->
+			<p class="readMore"><a href="{continueUrl}">read more... &raquo;</a></p>
+			<!-- END continueLink:veil -->
+			<!-- 「続きを読む」終了▲▲ -->
+			<!-- BEGIN adminEntryEdit -->
+			<!-- エントリーの作成・編集のインクルード -->
+			<!--#include file="/admin/entry/edit.html"-->
+			<!-- エントリーのユニット追加のインクルード -->
+			<!--#include file="/admin/entry/add.html"-->
+			<!-- END adminEntryEdit -->
+			
+			<!-- BEGIN tag:veil -->
+			<aside>tags：<!-- BEGIN tag:loop --><a href="{url}">{name}</a>&nbsp;<!-- END tag:loop --></aside>
+			<!-- END tag:veil -->
+			
+			<!-- エントリーの管理操作ボタンのインクルード -->
+			<!--#include file="/admin/entry/action.html"-->
+			<!-- エントリー本文終了▲▲ -->
+			<hr /></div><!-- //entry-content -->
+		</article>
+		<!-- END entry:loop -->
+		
+		
+		
+		<!-- BEGIN serialNavi:veil -->
+		<!-- BEGIN prevLink -->
+		<h2>prev entry</h2>
+        <form action="{url}" class="js-post_include-ready">
+		<input type="hidden" name="tpl" value="include/post/relationEntrySummary.html" />
+		<input type="hidden" name="ACMS_POST_2GET" value="検索" />
+		</form>
+		<!-- END prevLink -->
+		<!-- END serialNavi:veil -->
+        <!-- END_MODULE Entry_Body -->
+		<!-- エントリー表示▲▲ -->
+		
+		
+		
+		
+		<!-- BEGIN_MODULE Touch_Entry -->
+		<!-- コメント▼▼ -->
+		<div id="comments" class="clearfix">
+			<h2>comment</h2>
+			<section id="respond">
+			<!-- inc:コメントフォーム -->
+			<!--#include file="/admin/comment/edit.html"-->
+			</section>
+			
+			<!-- BEGIN_MODULE Comment_Body -->
+			<!-- BEGIN position:veil -->
+			<aside class="fromTo  webfonts-regular">{from} - {to} / {amount}</aside>
+			<!-- END position:veil -->
+			<!-- BEGIN relation:vail -->
+			<div id="commentMain">
+				<!-- BEGIN comment:loop -->
+				<!-- BEGIN div#front -->
+				<article class="commentEntry">
+					<!-- END div#front -->
+					<!-- BEGIN body:veil -->
+					<h3 id="comment-{cmid}">{title}</h3><!-- BEGIN awaiting#header -->承認待ち<!-- END awaiting#header -->
+					<aside class="webfonts-regular">
+						<!-- BEGIN posterLink#front -->
+						<cite><a href="{url}">
+						<!-- END posterLink#front -->
+						<!-- BEGIN posterName:veil -->
+						{posterName}
+						<!-- END posterName:veil -->
+						<!-- BEGIN posterLink#rear -->
+						</a></cite>
+						<!-- END posterLink#rear -->
+						<time datetime="{date#Y}-{date#m}-{date#d}T{date#H}:{date#i}:{date#s}+09:00" pubdate>{date#Y}.{date#m}.{date#d} {date#H}:{date#i}:{date#s} ( {date#week} )</time>
+					</aside>
+					<!-- BEGIN replyLink:veil -->
+					<p class="commentReply"><a href="{replyUrl}#comment">返信</a></p>
+					<!-- END replyLink:veil -->
+					<div class="commentEntryForm">
+						<!--#include file="/admin/comment/action.html"-->
+					</div>
+					<p class="commnetBody">{body}<!-- BEGIN awaiting#body -->このコメントは承認待ちです。<!-- END awaiting#body --></p>
+					
+					<!-- END body:veil -->
+					<!-- BEGIN div#rear -->
+				</article>
+				<!-- END div#rear -->
+				<!-- END comment:loop -->
+				<!-- BEGIN backLink -->
+				<p><a href="{url}">&laquo; prev comment</a></p>
+				<!-- END backLink -->
+				 
+				<!-- BEGIN forwardLink -->
+				<p><a href="{url}">next comment &raquo;</a></p>
+				<!-- END forwardLink -->
+			</div>
+			<!-- END relation:vail -->
+			<!-- END_MODULE Comment_Body -->
+		</div><!-- //comments -->
+		<!-- コメント▲▲ -->
+		<!-- END_MODULE Touch_Entry -->
+		<div id="historyList"></div>
+	</div><!-- //main -->
+	<!-- サブカラム▼▼ -->
+	<aside id="sub" class="clearfix">
+		<div id="subLeft">
+			<!-- BEGIN_MODULE User_Profile -->
+			<h2>profile</h2>
+			<!-- BEGIN user:loop -->
+			<!-- BEGIN image:veil -->
+			<img src="%{ARCHIVES_DIR}{image@path}" width="{image@x}" height="{image@y}" alt="{image@alt}" id="profileImg" />
+			<!-- END image:veil -->
+			<!-- BEGIN name:veil -->
+			<h3 id="profileName">{name}</h3>
+			<!-- END name:veil -->
+			<!-- BEGIN position:veil -->
+			<p id="profilePosition">{position}</p>
+			<!-- END position:veil -->
+			<!-- BEGIN title:veil -->
+			<p id="profileTitle">{title}</p>
+			<!-- END title:veil -->
+			<!-- BEGIN profile:veil -->
+			<p id="profileText"  class="webfonts-regular">{profile}[raw]</p>
+			<!-- END profile:veil -->
+			<!-- END user:loop -->
+			<!-- END_MODULE User_Profile -->
+		</div>
+		<!-- BEGIN_MODULE Category_List -->
+		<div id="subRight">
+			<h2>categories</h2><!-- BEGIN category:loop --><!-- BEGIN ul#front -->
+			<ul class="clearfix"><!-- END ul#front --><!-- BEGIN li#front -->
+				<li class="webfonts-light"><!-- END li#front --><!-- BEGIN category:veil -->
+					<a href="{url}">{name}</a><!-- BEGIN amount:veil -->
+					<span> ({amount})</span><!-- END amount:veil --><!-- END category:veil --><!-- BEGIN li#rear -->
+				</li><!-- END li#rear --><!-- BEGIN ul#rear -->
+			</ul><!-- END ul#rear --><!-- END category:loop --><!-- END_MODULE Category_List -->
+			<h2>search</h2>
+			<form method="post" name="searchForm" id="searchForm">
+				<input type="hidden" name="tpl" value="search" />
+				<input type="text" name="keyword" value="%{KEYWORD}" size="30" />
+				<input type="text" class="iebug" style="display: none;" value="" name="iebug" />
+				<input type="submit" name="ACMS_POST_2GET" value="検索" />
+				<input type="hidden" name="bid" value="%{BID}" />
+			</form>
+		</div>
+	</aside>
+	<!-- サブカラム▲▲ -->
+	<!-- フッター▼▼ -->
+	<footer id="contentInfo" role="contentinfo" class="webfonts-light">
+		<p id="toTop"><a class="scrollTo" href="#">top of page ▲</a></p>
+		<p id="copyright">© ra66it.net</p>
+	</footer>
+</div><!-- //content -->
+<!-- フッター▲▲ -->
+<!--#include file="/include/foot/scripts.html"-->
+<!--#include file="/include/foot/style.html"-->
+<!--#include file="/js/ga.js"-->
+</body>
+</html>

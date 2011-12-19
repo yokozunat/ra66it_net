@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="yokozuant" />
+<meta name="copyright" content="Copyright &copy; ra66it.net" />
+<title>%{INHERLINK}</title>
+<link href="../css/acms.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/main.css" rel="stylesheet" type="text/css" media="all" />
+<!-- BEGIN_MODULE Js --><script type="text/javascript" src="/index.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+<!--[if IE]><script type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script type="text/javascript">
+onload = function() {
+  draw1();
+  draw2();
+  draw3();
+};
+/* 円を描く */
+function draw1() {
+  var canvas = document.getElementById('c1');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.arc(70, 70, 60, 0, Math.PI*2, false);
+  ctx.stroke();
+}
+/* 円弧を描く */
+function draw2() {
+  var canvas = document.getElementById('c2');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.arc(70, 70, 60, 10 * Math.PI / 180, 80 * Math.PI / 180, false);
+  ctx.stroke();
+}
+/* 円弧を塗りつぶす */
+function draw3() {
+  var canvas = document.getElementById('c3');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.arc(70, 70, 60, 10 * Math.PI / 180, 80 * Math.PI / 180, true);
+  ctx.fill();
+}
+</script>
+
+</head>
+<body>
+<!-- 管理用パーツのインクルード --><!--#include file="/admin/action.html"-->
+<h1>Canvas</h1>
+<h2>円を描く</h2>
+<canvas id="c1" width="140" height="140"></canvas>
+<h2>円弧を描く</h2>
+<canvas id="c2" width="140" height="140"></canvas>
+<h2>円弧を塗りつぶす</h2>
+<canvas id="c3" width="140" height="140"></canvas>
+</body>
+</html>

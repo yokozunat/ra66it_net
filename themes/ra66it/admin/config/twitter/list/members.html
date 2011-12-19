@@ -1,0 +1,35 @@
+<h1><!-- BEGIN_MODULE Admin_Rule_Name -->
+	<strong>ルール : {name} の</strong><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+	<strong>モジュールID : {label} ( {identifier} ) の</strong><!-- END_MODULE Admin_Module_Name -->コンフィグ管理
+</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_Config -->
+<div class="titleWrapper">
+	<h2>Twitterリストメンバーズ ( Twitter_List_Members )</h2><!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+	<a href="/bid/%{BID}/admin/shortcut_edit/?rid=%{rid}&mid=%{mid}&action=Config&admin=%{ADMIN}&edit=add&step=reapply" class="shortcutBtn">ショートカットに追加</a><!-- END_MODULE Touch_SessionWithAdministration -->
+</div>
+<div class="contents">
+	<form action="" method="post">
+		<table class="adminTable adminTableY">
+    		<tr>
+    			<th>APIリクエスト キャッシュ有効時間</th>
+    			<td>
+    				<input type="text" name="twitter_list_members_cache_expire" value="{twitter_list_members_cache_expire}" size="8" /> 秒
+    				<input type="hidden" name="config[]" value="twitter_list_members_cache_expire" />
+    				<input type="hidden" name="twitter_list_members_cache_expire:validator#digits" id="validator-twitter_list_members_cache_expire-digits" />
+    				<label for="validator-twitter_list_members_cache_expire-digits" class="validator-result-{twitter_list_members_cache_expire:validator#digits}">数字を入力して下さい。</label>
+    			</td>
+    		</tr>
+		</table><!-- BEGIN_MODULE Admin_Rule_Name -->
+		<input type="hidden" name="rid" value="{rid}" /><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+		<input type="hidden" name="mid" value="{mid}" /><!-- END_MODULE Admin_Module_Name -->
+		
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="submit" name="ACMS_POST_Config" value="保存" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div><!-- END_MODULE Admin_Config -->

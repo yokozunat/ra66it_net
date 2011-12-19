@@ -1,0 +1,18 @@
+<!-- BEGIN adminEntryAction -->
+<div class="formEntryAction clearfix">
+	<span class="adminBtn">編集</span><!-- BEGIN edit -->
+	<form action="" method="post" class="adminBtn"><input name="ACMS_POST_2GET" type="submit" value="変更" /><input type="hidden" name="admin" value="entry-edit" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form>
+	<form action="" method="post" class="adminBtn"><input type="submit" name="ACMS_POST_Entry_Duplicate" value="複製" onclick="javascript:return confirm('エントリーを複製します。よろしいですか？')" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form><!-- END edit --><!-- BEGIN delete -->
+	<form action="" method="post" class="adminBtn"><input type="submit" name="ACMS_POST_Entry_Delete" value="削除" onclick="javascript:return confirm('エントリーを削除します。よろしいですか？')" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form><!-- END delete --><!-- BEGIN open -->
+	<form action="" method="post" class="adminBtn"><input type="submit" name="ACMS_POST_Entry_Open" value="公開" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form><!-- END open --><!-- BEGIN close -->
+	<form action="" method="post" class="adminBtn"><input type="submit" name="ACMS_POST_Entry_Close" value="非公開" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form><!-- END close -->
+	<br class="clear" />
+	<span class="adminBtn">TW</span><form action="" method="post" class="adminBtn"><input type="submit" name="ACMS_POST_Api_Twitter_Entry_Open" value="ツイートして公開" />&nbsp;<input type="text" name="tweet" value="ブログ更新 : %TITLE% (  %URL% )" style="width:300px;"><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /></form>
+	<br class="clear" />
+	
+
+
+	<!-- BEGIN add -->
+	<span class="adminBtn">追加</span><!-- BEGIN add:loop -->
+	<form action="" method="post" class="adminBtn"><input type="submit" value="{label}" name="ACMS_POST_2GET" /><input type="hidden" name="bid" value="{bid}" /><input type="hidden" name="cid" value="{cid}" /><input type="hidden" name="eid" value="{eid}" /><input type="hidden" name="admin" value="entry-add-{type}" /><input type="hidden" name="fragment" value="entry-add" /></form><!-- END add:loop --><!-- END add -->
+</div><!-- END adminEntryAction -->

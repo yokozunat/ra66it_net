@@ -1,0 +1,106 @@
+<h1><!-- BEGIN_MODULE Admin_Rule_Name -->
+	<strong>ルール : {name} の</strong><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+	<strong>モジュールID : {label} ( {identifier} ) の</strong><!-- END_MODULE Admin_Module_Name -->コンフィグ管理
+</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_Config -->
+<div class="titleWrapper">
+	<h2>Flickrフォトサーチ ( Flickr_Photos_Search )</h2><!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+	<a href="/bid/%{BID}/admin/shortcut_edit/?rid=%{rid}&mid=%{mid}&action=Config&admin=%{ADMIN}&edit=add&step=reapply" class="shortcutBtn">ショートカットに追加</a><!-- END_MODULE Touch_SessionWithAdministration -->
+</div>
+<div class="contents">
+	<form action="" method="post">
+		<table class="adminTable adminTableY">
+<!--
+			<tr>
+				<th>ユーザーID(nsid)</th>
+				<td>
+					<input type="text" name="flickr_photos_search_user" value="{flickr_photos_search_user}" size="20" />
+					<input type="hidden" name="config[]" value="flickr_photos_search_user" />
+					<input type="hidden" name="flickr_photos_search_user:convert" value="a" />
+				</td>
+			</tr>
+-->
+			<tr>
+				<th>表示順</th>
+				<td>
+					<select name="flickr_photos_search_order">
+						<option value="date-posted-asc"{flickr_photos_search_order:selected#date-posted-asc}>投稿日 ( 昇順 )</option>
+						<option value="date-posted-desc"{flickr_photos_search_order:selected#date-posted-desc}>投稿日 ( 降順 )</option>
+						<option value="date-taken-asc"{flickr_photos_search_order:selected#date-taken-asc}>撮影日 ( 昇順 )</option>
+						<option value="date-taken-desc"{flickr_photos_search_order:selected#date-taken-desc}>撮影日 ( 降順 )</option>
+					</select>
+					<input type="hidden" name="config[]" value="flickr_photos_search_order" />
+				</td>
+			</tr>
+			<tr>
+				<th>表示件数</th>
+				<td>
+					<input type="text" name="flickr_photos_search_limit" value="{flickr_photos_search_limit}" size="4" />
+					<input type="hidden" name="config[]" value="flickr_photos_search_limit" />
+					<input type="hidden" name="flickr_photos_search_limit:convert" value="a" />
+					<input type="hidden" name="flickr_photos_search_limit:validator#digits" id="validator-flickr_photos_search_limit-digits" />
+					<label for="validator-flickr_photos_search_limit-digits" class="validator-result-{flickr_photos_search_limit:validator#digits}">数字を入力して下さい。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>公開範囲による絞り込み</th>
+				<td>
+					<select name="flickr_photos_search_privacy_filter">
+						<option value="1"{flickr_photos_search_privacy_filter:selected#1}>全体に公開された画像 ( public )</option>
+						<option value="2"{flickr_photos_search_privacy_filter:selected#2}>友人に公開された画像 ( private to friends )</option>
+						<option value="3"{flickr_photos_search_privacy_filter:selected#3}>家族に公開された画像 ( private to family )</option>
+						<option value="4"{flickr_photos_search_privacy_filter:selected#4}>友人と家族に公開された画像 ( private to friends & family )</option>
+						<option value="5"{flickr_photos_search_privacy_filter:selected#5}>すべての非公開画像 ( private completely )</option>
+					</select>
+					<input type="hidden" name="config[]" value="flickr_photos_search_privacy_filter" />
+				</td>
+			</tr>
+			<tr>
+				<th>タグによる絞り込み</th>
+				<td>
+					<select name="flickr_photos_search_tag_mode">
+						<option value="any"{flickr_photos_search_tag_mode:selected#any}>いずれかのタグを含む画像 ( OR )</option>
+						<option value="all"{flickr_photos_search_tag_mode:selected#all}>すべてのタグを含む画像 ( AND )</option>
+					</select>
+					<input type="hidden" name="config[]" value="flickr_photos_search_tag_mode" />
+				</td>
+			</tr>
+<!--
+            <tr class="js-map-editable">
+                <th>位置による絞り込み</th>
+                <td>
+                    <input type="text" name="" value="" class="js-editable_map-search_text" disabled="disabled" size="40" />
+                    <input type="button" name="" value="検索" class="js-editable_map-search_button" disabled="disabled" />
+                    <img class="js-map_editable-container" src="http://maps.google.com/staticmap?center=35.185574,136.899066&zoom=10&size=400x300&maptype=roadmap&markers={flickr_photos_search_lat},{flickr_photos_search_lon}&key=%{GOOGLE_API_KEY_ROOT}" width="400" height="300" style="display:block;" />
+                    緯度 <input type="text" name="flickr_photos_search_lat" value="{flickr_photos_search_lat}" size="9" class="js-map_editable-lat" />
+                    経度 <input type="text" name="flickr_photos_search_lon" value="{flickr_photos_search_lon}" size="10" class="js-map_editable-lng" />
+                    半径 <input type="text" name="flickr_photos_search_radius" value="{flickr_photos_search_radius}" size="10" />km
+                    <input type="hidden" name="config[]" value="flickr_photos_search_lat" />
+                    <input type="hidden" name="config[]" value="flickr_photos_search_lon" />
+                    <input type="hidden" name="config[]" value="flickr_photos_search_radius" />
+                </td>
+            </tr>
+-->
+    		<tr>
+    			<th>APIリクエスト キャッシュ有効時間</th>
+    			<td>
+    				<input type="text" name="flickr_photos_search_cache_expire" value="{flickr_photos_search_cache_expire}" size="8" /> 秒
+    				<input type="hidden" name="config[]" value="flickr_photos_search_cache_expire" />
+    				<input type="hidden" name="flickr_photos_search_cache_expire:validator#digits" id="validator-flickr_photos_search_cache_expire-digits" />
+    				<label for="validator-flickr_photos_search_cache_expire-digits" class="validator-result-{flickr_photos_search_cache_expire:validator#digits}">数字を入力して下さい。</label>
+    			</td>
+    		</tr>
+		</table><!-- BEGIN_MODULE Admin_Rule_Name -->
+		<input type="hidden" name="rid" value="{rid}" /><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+		<input type="hidden" name="mid" value="{mid}" /><!-- END_MODULE Admin_Module_Name -->
+		
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="submit" name="ACMS_POST_Config" value="保存" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div><!-- END_MODULE Admin_Config -->

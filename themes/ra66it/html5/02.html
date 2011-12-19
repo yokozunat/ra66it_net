@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="yokozuant" />
+<meta name="copyright" content="Copyright &copy; ra66it.net" />
+<title>01</title>
+<link href="../css/acms.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/main.css" rel="stylesheet" type="text/css" media="all" />
+<!-- BEGIN_MODULE Js --><script type="text/javascript" src="/index.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+<!--[if IE]><script type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script type="text/javascript">
+onload = function() {
+  draw();
+};
+function draw() {
+  /* canvas要素のノードオブジェクト */
+  var canvas = document.getElementById('canvassample');
+  /* canvas要素の存在チェックとCanvas未対応ブラウザの対処 */
+  if ( ! canvas || ! canvas.getContext ) {
+    return false;
+  }
+  /* 2Dコンテキスト */
+  var ctx = canvas.getContext('2d');
+  /* 四角を描く */
+  ctx.beginPath();
+  ctx.moveTo(20, 20);
+  ctx.lineTo(120, 20);
+  ctx.lineTo(120, 120);
+  ctx.lineTo(20, 120);
+  ctx.closePath();
+  ctx.fill();
+}
+</script>
+
+</head>
+<body>
+<!-- 管理用パーツのインクルード --><!--#include file="/admin/action.html"-->
+<h1>Canvas</h1>
+    <canvas id="canvassample" width="140" height="140"></canvas>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- BEGIN_MODULE Admin_ActionMenu -->
+<div id="adminBox" class="clearfix">
+	<p id="loginUserStatus">
+    User : {name} [<a href="/bid/%{SBID}/uid/%{SUID}/admin/user_edit/">プロフィール</a>]<!-- BEGIN status#trial -->
+        / <strong>トライアル版 有効期限</strong> : {expire}<!-- END status#trial --><!-- BEGIN status#limited -->
+        / <strong>期間限定ライセンス</strong> : {expire}<!-- END status#limited --><!-- BEGIN status#endtrial -->
+        / トライアル期間が終了しました : 継続利用のご案内 => [ <a href="http://www.a-blogcms.jp/license/" title="ライセンス体系のページ">商用・法人向けのご利用</a> / <a href="http://www.a-blogcms.jp/one/" title="Oneライセンスお申し込みのページ">個人・非商用のご利用</a> ]<!-- END status#endtrial --><!-- BEGIN status#endlimited -->
+        / 期間限定ライセンスが終了しました。<!-- END status#endlimited -->
+	</p>
+
+	<!-- BEGIN_MODULE Touch_Entry -->
+	<!-- BEGIN_MODULE Touch_SessionWithContribution --><!-- BEGIN_MODULE Touch_NotEditInplace -->
+	<form action="" method="post" class="adminBtn">
+		<input type="hidden" name="acms_config_entry_edit_inplace_enable" value="on" />
+		<input type="hidden" name="cookie[]" value="acms_config_entry_edit_inplace_enable" />
+		<input type="submit" name="ACMS_POST_Cookie" value="ダイレクト編集ONにする" />
+	</form><!-- END_MODULE Touch_NotEditInplace -->
+	<!-- BEGIN_MODULE Touch_EditInplace -->
+	<form action="" method="post" class="adminBtn">
+		<input type="hidden" name="acms_config_entry_edit_inplace_enable" value="off" />
+		<input type="hidden" name="cookie[]" value="acms_config_entry_edit_inplace_enable" />
+		<input type="submit" name="ACMS_POST_Cookie" value="ダイレクト編集OFFにする" />
+	</form><!-- END_MODULE Touch_EditInplace --><!-- END_MODULE Touch_SessionWithContribution -->
+	<!-- END_MODULE Touch_Entry -->
+
+	<!-- BEGIN insert -->
+	<form action="" method="post" class="adminBtn">
+		<input type="submit" name="ACMS_POST_2GET" value="エントリー作成" />
+		<input type="hidden" name="admin" value="entry-edit" />
+		<input type="hidden" name="bid" value="%{BID}" />
+		<input type="hidden" name="cid" value="%{CID}" />
+	</form><!-- END insert -->
+	<!-- BEGIN moblog -->
+	<form action="" method="post" class="adminBtn">
+		<input type="submit" name="ACMS_POST_Moblog_POP3" value="メール受信" onclick="return confirm('メールを受信します。\nこの処理は時間がかかる事が有ります。よろしいですか？');" />
+	</form><!-- END moblog -->
+	<!-- BEGIN_MODULE Touch_NotAdmin -->
+	<form action="" method="post" class="adminBtn">
+		<input type="submit" name="ACMS_POST_2GET" value="管理ページ" />
+		<input type="hidden" name="admin" value="top" />
+		<input type="hidden" name="bid" value="%{BID}" />
+	</form><!-- END_MODULE Touch_NotAdmin -->
+	<!-- BEGIN_MODULE Touch_Edit -->
+	<form action="" method="post" class="adminBtn">
+		<input type="submit" name="ACMS_POST_2GET" value="管理ページ" />
+		<input type="hidden" name="admin" value="top" />
+		<input type="hidden" name="bid" value="%{BID}" />
+	</form><!-- END_MODULE Touch_Edit -->
+
+	<!-- BEGIN pingUpdate -->
+	<form action="" method="post" class="adminBtn"><!-- BEGIN ping_weblog_updates_endpoint:loop -->
+		<input type="hidden" name="ping_weblog_updates_endpoint[]" value="{ping_weblog_updates_endpoint}" /><!-- END ping_weblog_updates_endpoint:loop -->
+		<input type="hidden" name="pingUpdate[]" value="ping_weblog_updates_endpoint" /><!-- BEGIN ping_weblog_updates_extended_endpoint:loop -->
+		<input type="hidden" name="ping_weblog_updates_extended_endpoint[]" value="{ping_weblog_updates_extended_endpoint}" /><!-- END ping_weblog_updates_extended_endpoint:loop -->
+		<input type="hidden" name="pingUpdate[]" value="ping_weblog_updates_extended_endpoint" />
+		<input type="hidden" name="pingUpdateTpl" value="/rpc/weblog-updates-ping.xml" />
+		<input type="hidden" name="pingUpdate[]" value="pingUpdateTpl" />
+		<input type="submit" name="ACMS_POST_PingWeblogUpdate" value="Ping送信" />
+	</form><!-- END pingUpdate -->
+
+	<form action="" method="post" class="adminBtn">
+		<input type="submit" name="ACMS_POST_Logout" value="Logout" />
+	</form>
+	<!-- BEGIN_MODULE Touch_Entry --><!-- BEGIN_MODULE Touch_SessionWithAdministration --><!-- BEGIN_MODULE Config --><!-- BEGIN mailmagazine:touch#on -->
+	<hr class="clearHidden" style="margin:0;" />
+	<form action="" method="post" class="adminBtn">
+		<input type="hidden" name="bid" value="%{BID}" />
+		<input type="hidden" name="eid" value="%{EID}" />
+		<input type="submit" name="ACMS_POST_Entry_Mail" value="このエントリーをメールで送信" />
+		<label><input type="checkbox" name="issue" value="true" /> 一斉送信</label>
+	</form><!-- END mailmagazine:touch#on --><!-- END_MODULE Config --><!-- END_MODULE Touch_SessionWithAdministration --><!-- END_MODULE Touch_Entry -->
+	<!-- BEGIN_MODULE Touch_Debug -->
+	<hr class="clearHidden" style="margin:0;" />
+	<p style="color: #666; font-size: 12px; margin:0;">現在のテンプレートを表示しています：%{ROOT_TPL}</p><!-- END_MODULE Touch_Debug -->
+
+	<form action="" method="post">
+    	<input type="text" name="tweet" value="" style="width:500px;" />
+    	<input type="hidden" name="twitter[]" value="tweet" />
+    	<input type="submit" name="ACMS_POST_Api_Twitter_Statuses_Update" value="ツイート" />
+	</form>
+
+
+</div><!-- END_MODULE Admin_ActionMenu -->
+
+
+
+

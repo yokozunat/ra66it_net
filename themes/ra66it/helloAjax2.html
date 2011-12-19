@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="ja"> 
+<head> 
+<!--#include file="/include/head/metas.html"-->
+<!--#include file="/include/head/links.html"-->
+<!--#include file="/include/head/scripts.html"-->
+<title>Hello, World!2</title>
+<script type="text/javascript">
+<!--
+
+$(function(){
+	var rand = parseInt(Math.random()*30);
+	var jsonDataUrl = "./helloAjax2.json?num="+rand;
+	var studentsObj;
+	$.getJSON(jsonDataUrl, function(json) {
+	  loadCompleteJson(json);
+	  return;
+	});
+});
+
+function loadCompleteJson(json) {
+	var studentsObj = json[0];
+	$("#gallery").empty();
+	$.each(studentsObj.entry, function(key, value){
+		var imgObj = value;
+		$("<a/>")
+		.attr("href",imgObj.url+'/tpl/entry.html'+'?iframe=true&width=50%&height=100%')
+		.attr("rel",'prettyPhoto[iflames]')
+		.append("<img src='" + imgObj.tinyPath + "'/>")
+		.appendTo("#gallery");
+	});
+	ACMS.Dispatch(document.getElementById('gallery')); //指定したIDにCMSのJS全部のせみたいになる
+	
+}
+
+-->
+</script>
+</head>
+<body>
+<div id="gallery"></div>
+</body>
+</html>

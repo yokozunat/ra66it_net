@@ -1,0 +1,43 @@
+<!-- BEGIN_MODULE Api_YahooWebSearch -->
+
+<ul>
+<!-- BEGIN result:loop -->
+<li><a href="{url}">{title}</a> ( 検索情報更新日: {date#Y}-{date#m}-{date#d} )<p>{summary}</p></li>
+<!-- END result:loop -->
+
+<!-- BEGIN notFound -->
+<li>該当する結果はありませんでした</li>
+<!-- END notFound -->
+
+<!-- BEGIN notQuery -->
+<li>検索語を指定してください</li>
+<!-- END notQuery -->
+
+<!-- BEGIN requestFail -->
+<li>検索結果のリクエストに失敗しました</li>
+<!-- END requestFail -->
+
+<!-- BEGIN notAppId -->
+<li>アプリケーションIDが設定されていません</li>
+<!-- END notAppId -->
+
+</ul>
+
+<!-- BEGIN pager:veil -->
+<p>
+	<!-- BEGIN page:loop --><!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue -->, <!-- END glue --><!-- END page:loop -->
+	<!-- BEGIN lastPage:veil --> ...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil -->
+</p>
+<p>
+	<!-- BEGIN backLink --><a href="{url}">&laquo; 前の{backNum}件</a><!-- END backLink -->
+	<!-- BEGIN forwardLink --><a href="{url}">次の{forwardNum}件 &raquo;</a><!-- END forwardLink -->
+</p>
+<!-- END pager:veil -->
+
+
+<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+<a href="http://developer.yahoo.co.jp/about">
+<img src="http://i.yimg.jp/images/yjdn/yjdn_attbtn1_125_17.gif" title="Webサービス by Yahoo! JAPAN" alt="Web Services by Yahoo! JAPAN" width="125" height="17" border="0" style="margin:15px 15px 15px 15px"></a>
+<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+
+<!-- END_MODULE Api_YahooWebSearch -->

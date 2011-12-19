@@ -1,0 +1,64 @@
+<!-- BEGIN column:loop --><!-- BEGIN unitGroup#rear -->
+</div><!-- END unitGroup#rear --><!-- BEGIN unitGroup#front -->
+<div class="{class}"><!-- END unitGroup#front --><!-- BEGIN inplace#front -->
+<div class="js-edit_inplace" id="{column:loop.unit_eid}-{column:loop.utid}"><!-- END inplace#front -->
+
+<!-- BEGIN clear -->
+<hr class="clearHidden" /><!-- END clear --><!-- BEGIN column#text -->
+
+<!-- テキスト -->
+<!-- BEGIN p -->
+<p{class}>{text}[nl2br]</p><!-- END p --><!-- BEGIN h3 -->
+<h3{class} id="h{utid}">{text}[nl2br]</h3><!-- END h3 --><!-- BEGIN h4 -->
+<h4{class} id="h{utid}">{text}[nl2br]</h4><!-- END h4 --><!-- BEGIN h5 -->
+<h5{class} id="h{utid}">{text}[nl2br]</h5><!-- END h5 --><!-- BEGIN ul -->
+<ul{class}>{text}[list]</ul><!-- END ul --><!-- BEGIN ol -->
+<ol{class}>{text}[list]</ol><!-- END ol --><!-- BEGIN blockquote -->
+<blockquote{class}>{text}[nl2br]</blockquote><!-- END blockquote --><!-- BEGIN table -->
+<table{class}>{text}[table]</table><!-- END table --><!-- BEGIN pre -->
+<pre{class}>{text}</pre><!-- END pre --><!-- BEGIN none -->
+{text}[raw]<!-- END none --><!-- BEGIN markdown -->
+{text}[markdown]<!-- END markdown --><!-- BEGIN wysiwyg -->
+{text}[raw]<!-- END wysiwyg -->
+<!-- END column#text --><!-- BEGIN column#image -->
+
+<!-- 画像 -->
+<div class="column-image-{align}"><!-- BEGIN link#front -->
+	<a href="{url}"{viewer}[raw]><!-- END link#front -->
+		<img class="columnImage" src="%{ROOT_DIR}{path}" alt="{alt}" width="{x}" height="{y}" /><!-- BEGIN link#rear -->
+	</a><!-- END link#rear --><!-- BEGIN caption:veil -->
+	<p class="caption">{caption}</p><!-- END caption:veil -->
+</div><!-- END column#image --><!-- BEGIN column#file -->
+
+<!-- ファイル -->
+<div class="column-file-{align}">
+	<a href="%{HTTP_ROOT}{path}"><img class="columnIcon" src="%{ROOT_DIR}{icon}" alt="ファイルイメージ" width="{x}" height="{y}" /></a><!-- BEGIN caption:veil -->
+	<p class="caption">{caption}</p><!-- END caption:veil -->
+</div><!-- END column#file --><!-- BEGIN column#map -->
+
+<!-- 地図 -->
+<img class="column-map-{align}" src="{proxy}http://maps.google.com/staticmap?center={lat},{lng}&zoom={zoom}&size={x}x{y}&maptype=roadmap&markers={lat},{lng}&key=%{GOOGLE_API_KEY}" alt="{msg}" width="{x}" height="{y}" title="クリックで地図が動かせるようになります。" /><!-- END column#map --><!-- BEGIN column#youtube -->
+
+<!-- YouTube -->
+<div class="column-youtube-{align}">
+	<object width="{x}" height="{y}"><param name="movie" value="http://www.youtube.com/v/0zldvi6V0ms&hl=ja&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/{youtubeId}&hl=ja&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="{x}" height="{y}"></embed></object>
+</div><!-- END column#youtube --><!-- BEGIN column#eximage -->
+
+<!-- 画像URL -->
+<div class="column-eximage-{align}"><!-- BEGIN link#front -->
+	<a href="{url}"{viewer}[raw]><!-- END link#front -->
+		<img class="columnImage" src="{normal}" alt="{alt}" width="{x}" height="{y}" /><!-- BEGIN link#rear -->
+	</a><!-- END link#rear --><!-- BEGIN caption:veil -->
+	<p class="caption">{caption}</p><!-- END caption:veil -->
+</div>
+<!-- END column#eximage --><!-- BEGIN column#break -->
+
+<!-- 改ページ -->
+<!-- {label} -->
+
+<!-- END column#break -->
+
+<!-- BEGIN inplace#rear --></div><!-- END inplace#rear -->
+<!-- BEGIN unitGroup#last --></div><!-- END unitGroup#last -->
+
+<!-- END column:loop -->

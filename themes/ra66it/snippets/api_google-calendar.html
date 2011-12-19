@@ -1,0 +1,19 @@
+<!-- BEGIN_MODULE API_GoogleCalendar -->
+
+<dl>
+<!-- BEGIN event:loop -->
+<dt>[ {class} ] <a href="{href}">{title}</a></dt>
+<dd>{content}[raw|anchor('url')] {where} ( {sdate#Y}-{sdate#m}-{sdate#d} {sdate#H}:{sdate#i} 〜 {edate#Y}-{edate#m}-{edate#d} {edate#H}:{edate#i} )</dd>
+<!-- END event:loop -->
+
+<!-- BEGIN notFound -->
+<dd>該当する結果はありませんでした</dd>
+<!-- END notFound -->
+
+<!-- BEGIN requestFail -->
+<dd>検索結果のリクエストに失敗しました</dd>
+<!-- END requestFail -->
+
+</dl>
+
+<!-- END_MODULE API_GoogleCalendar -->

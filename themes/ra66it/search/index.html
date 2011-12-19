@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--#include file="/include/head/metas.html"-->
+<!--#include file="/include/head/links.html"-->
+<!--#include file="/include/head/scripts.html"-->
+<title><!-- BEGIN_MODULE Touch_Entry -->%{ENTRY_TITLE} | <!-- END_MODULE Touch_Entry --><!-- BEGIN_MODULE Touch_Category -->%{CATEGORY_NAME} | <!-- END_MODULE Touch_Category -->%{BLOG_NAME}</title>
+</head>
+<body>
+<!-- 管理用パーツのインクルード -->
+<!--#include file="/admin/action.html"-->
+<div id="content">
+	<header id="banner" role="banner">
+		<h1 class="logo"><a href="%{BASE_URL}#%{EID}" rel="home">%{BLOG_NAME}</a></h1>
+	</header>
+	<!-- メインカラム開始▼▼ -->
+	<div id="main" role="main">
+		<nav class="pageNav">
+			<ul>
+				<li class="webfonts-regular"><a href="#textSearch">Text Search</a></li>
+				<li class="webfonts-regular"><a href="#imageSearch">Image Search</a></li>
+			</ul>
+		</nav>
+        <!-- ガイドボックスのインクルード -->
+		<!--#include file="/include/guideBox.html"-->
+		
+		<h2 id="textSearch">Text Search</h2>
+		<!-- エントリー表示▼▼ -->
+		<!-- BEGIN_MODULE Api_YahooWebSearch -->
+		<!-- BEGIN notFound -->
+		<p>お探しのエントリーは見つかりませんでした。</p><!-- END notFound -->
+		<!-- BEGIN notQuery -->
+		<p>検索語を指定してください</p><!-- END notQuery -->
+		<!-- BEGIN requestFail -->
+		<p>検索結果のリクエストに失敗しました</p><!-- END requestFail -->
+		<!-- BEGIN notAppId -->
+		<p>アプリケーションIDが設定されていません</p><!-- END notAppId -->
+		<!-- BEGIN result:loop -->
+		<article class="entrySummary clearfix js-biggerlink">
+				<h2 class="entrySummaryTitle"><a href="{url}">{title}</a></h2>
+				<p class="entrySummarySummary">{summary}[trim(1000, '...')]</p>
+				<p class="entrySummaryUrl"><a href="{url}">{url}</a></p>
+		</article><!-- END result:loop -->
+		
+			
+		<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+		<a href="http://developer.yahoo.co.jp/about" id="yahooBanner">
+		<img src="http://i.yimg.jp/images/yjdn/yjdn_attbtn1_125_17.gif" title="Webサービス by Yahoo! JAPAN" alt="Web Services by Yahoo! JAPAN" width="125" height="17" border="0" style="margin:15px 15px 15px 15px"></a>
+		<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+
+		<!-- BEGIN pager:veil -->
+		<nav class="entryListNavi clearfix webfonts-regular">
+			<ul>
+			<li class="backPageLink"><!-- BEGIN backLink --><a href="{url}">&laquo; prev {backNum}</a>&nbsp;<!-- END backLink --></li>		
+			<li class="PageLink">{itemsFrom} - {itemsTo} / {itemsAmount}<!-- BEGIN page:loop -->&nbsp;<!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue --><!-- END glue --><!-- END page:loop --><!-- BEGIN lastPage:veil -->&nbsp;...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil --></li>
+			<li class="forwardPageLink"><!-- BEGIN forwardLink -->&nbsp;<a href="{url}">next {forwardNum} &raquo;</a><!-- END forwardLink --></li>
+			</ul>
+		</nav>
+		<!-- END pager:veil -->
+		<!-- END_MODULE Api_YahooWebSearch -->
+		
+		<h2 id="imageSearch">Image Search</h2>
+		<!-- BEGIN_MODULE Api_YahooImageSearch -->
+		<!-- BEGIN result:loop -->
+		<article class="entrySummary clearfix js-biggerlink">
+			<div class="entrySummaryPhoto">
+				<a href="{referer}"><!-- BEGIN thumnail:veil --><img src="{thumbUrl}" width="{thumbWidth}" height="{thumbHeight}" alt="{title}" longdesc="{referer}" /></a>
+			</div>
+			<div>
+				<h2 class="entrySummaryTitle" id="{eid}"><a href="{referer}">{title} ({filesize})</a></h2>
+				<p class="entrySummaryText">{summary}[trim(100, '...')]</p><p class="continueLink clear"><a href="{referer}">read more... &raquo;</a></p>
+			</div>
+		</article>
+		<!-- END result:loop -->
+		<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+		<a href="http://developer.yahoo.co.jp/about" id="yahooBanner">
+		<img src="http://i.yimg.jp/images/yjdn/yjdn_attbtn1_125_17.gif" title="Webサービス by Yahoo! JAPAN" alt="Web Services by Yahoo! JAPAN" width="125" height="17" border="0" style="margin:15px 15px 15px 15px"></a>
+		<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+		<!-- BEGIN pager:veil -->
+		<nav class="entryListNavi clearfix webfonts-regular">
+			<ul>
+			<li class="backPageLink"><!-- BEGIN backLink --><a href="{url}">&laquo; prev {backNum}</a>&nbsp;<!-- END backLink --></li>		
+			<li class="PageLink">{itemsFrom} - {itemsTo} / {itemsAmount}<!-- BEGIN page:loop -->&nbsp;<!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue --><!-- END glue --><!-- END page:loop --><!-- BEGIN lastPage:veil -->&nbsp;...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil --></li>
+			<li class="forwardPageLink"><!-- BEGIN forwardLink -->&nbsp;<a href="{url}">next {forwardNum} &raquo;</a><!-- END forwardLink --></li>
+			</ul>
+		</nav>
+		<!-- END pager:veil -->
+		<!-- END_MODULE Api_YahooImageSearch -->
+
+		
+		
+		
+		
+		
+		
+		<!-- エントリー表示▲▲ -->
+	</div>
+	<!-- メインカラム▲▲ -->
+
+<!-- フッター▼▼ -->
+	<footer id="contentInfo" role="contentinfo" class="webfonts-regular">
+		<p id="toTop"><a class="scrollTo" href="#">top of page ▲</a></p>
+		<p id="copyright">© ra66it.net</p>
+	</footer>
+</div><!-- //content -->
+<!-- フッター▲▲ -->
+<!--#include file="/include/foot/scripts.html"-->
+<!--#include file="/include/foot/style.html"-->
+<!--#include file="/js/ga.js"-->
+</body>
+</html>

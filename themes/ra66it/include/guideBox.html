@@ -1,0 +1,29 @@
+<!-- タグの絞り込み開始▼▼ -->
+		<!-- BEGIN guideBox:veil -->
+		<div class="guideBox">
+			<!-- BEGIN_MODULE Tag_Filter -->
+			<!-- BEGIN tagBox -->
+			<div id="tagBox">
+				<p id="selectTag">選択されているタグ&nbsp;:&nbsp;
+				<span>
+				<!-- BEGIN selected:loop -->
+				<a href="{url}">{name}</a>
+				<!-- BEGIN glue -->
+				&gt;
+				<!-- END glue -->
+				<!-- END selected:loop -->
+				</span></p>
+				<!-- BEGIN choice:veil -->
+				<p id="nextTagTitle">タグを絞り込む&nbsp;:
+				<!-- BEGIN choice:loop -->
+				<span><a href="{url}">{name}</a></span>
+				<!-- END choice:loop -->
+				<!-- END choice:veil -->
+				</p>
+			</div>
+			<!-- END tagBox -->
+			<!-- END_MODULE Tag_Filter -->
+		</div>
+		<!-- END guideBox:veil -->
+		<!-- タグの絞り込み終了▲▲ -->
+		

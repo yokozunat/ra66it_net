@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--#include file="/include/head/metas.html"-->
+<!--#include file="/include/head/links.html"-->
+<!--#include file="/include/head/scripts.html"-->
+<title><!-- BEGIN_MODULE Touch_Entry -->%{ENTRY_TITLE} | <!-- END_MODULE Touch_Entry --><!-- BEGIN_MODULE Touch_Category -->%{CATEGORY_NAME} | <!-- END_MODULE Touch_Category -->%{BLOG_NAME}</title>
+<style type="text/css">
+.entryTitle {
+	text-shadow: none;
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+}
+.entry p span,
+.entry h2 span,
+.entry h3 span,
+.entry h4 span,
+#comments h2,
+#prev h2,
+.entrySummary {
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+	padding: 10px;
+	border: none;
+	line-height: 2.2;
+}
+aside#sub,
+aside time.entryDate,
+footer#contentInfo {
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+	padding: 20px;
+	border: none;
+}
+.columnImage {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+hr {
+	border: none;
+}
+a:link,a:visited,a:active {
+    color: #E0E0E0;
+}
+a:hover {
+    border: none;
+    color: #0000CC;
+    text-decoration: none;
+    background-color: #CCCCFF;
+}
+header#banner {
+	border: none;
+}
+</style>
+<script type="text/javascript" charset="utf-8" src="/js/jquery.tubular.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$().ready(function() {
+	$('body').tubular('zQlOTu6m-Yk','content'); // where someYTid is the YouTube ID and wrapper is your containing DIV.
+});
+//]]>
+</script>
+</head>
+<body>
+<!-- 管理用パーツのインクルード -->
+<!--#include file="/admin/action.html"-->
+<div id="content">
+	
+	<header id="banner" role="banner">
+		<h1 class="logo"><a href="%{BASE_URL}#%{EID}" rel="home">%{BLOG_NAME}</a></h1>
+	</header>
+	<div id="main" role="main">
+		<!-- BEGIN_MODULE Entry_Body -->
+		<!-- BEGIN notFound -->
+		<section>お探しのエントリーは見つかりませんでした。</section>
+		<!-- END notFound -->
+		<!-- BEGIN entry:loop -->
+		<article class="entry" id="%{EID}">
+			<!-- 編集時タイトルのインクルード -->
+			<!--#include file="/admin/entry/title.html"-->
+			<!-- BEGIN title --><header class="entryHeader"><h1 class="entryTitle"><a href="{titleUrl}">{title}[raw]</a></h1></header><!-- END title -->
+			<aside class="entryData webfonts-regular"><time class="entryDate" datetime="{date#Y}-{date#m}-{date#d}T{date#H}:{date#i}:{date#s}+09:00" pubdate>{date#Y}.{date#m}.{date#d}</time><!-- BEGIN category:veil --><p class="entryCategory"><!-- BEGIN category:loop --><a href="{url}">{name}</a><!-- BEGIN glue -->&lt;<!-- END glue --><!-- END category:loop --></p><!-- END category:veil --><!-- エントリーフッター開始▼▼ --><!-- BEGIN footer:veil --><p class="entryComment"><!-- BEGIN commentAmount --><small><a href="{commentUrl}#comment">comment ( {commentAmount} )</a></small><!-- END commentAmount --></p><!-- END footer:veil --><!-- エントリーフッター終了▲▲ --></aside>
+			
+			
+			
+			<div class="entryContent">
+			<!-- BEGIN column:veil -->
+			<!-- カラム表示のインクルード -->
+			<!-- BEGIN column:loop --><!-- BEGIN unitGroup#rear -->
+			</div><!-- END unitGroup#rear --><!-- BEGIN unitGroup#front -->
+			<div class="{class} columnNumber{i}"><!-- END unitGroup#front --><!-- BEGIN inplace#front -->
+			<div class="js-edit_inplace" id="{column:loop.unit_eid}-{column:loop.utid}"><!-- END inplace#front -->
+			<!-- BEGIN clear -->
+			<hr class="clearHidden" /><!-- END clear --><!-- BEGIN column#text -->
+			<!-- テキスト -->
+			<!-- BEGIN p -->
+			<p {class}><span>{text}[nl2br]</span></p><!-- END p --><!-- BEGIN h2 -->
+			<h2 {class}><span>{text}[nl2br]</span></h2><!-- END h2 --><!-- BEGIN h3 -->
+			<h3 {class}><span>{text}[nl2br]</span></h3><!-- END h3 --><!-- BEGIN h4 -->
+			<h4 {class}><span>{text}[nl2br]</span></h4><!-- END h4 --><!-- BEGIN h5 -->
+			<h5 {class}><span>{text}[nl2br]</span></h5><!-- END h5 --><!-- BEGIN ul -->
+			<ul {class}>{text}[list]</ul><!-- END ul --><!-- BEGIN ol -->
+			<ol {class}>{text}[list]</ol><!-- END ol --><!-- BEGIN blockquote -->
+			<blockquote {class}>{text}[nl2br]</blockquote><!-- END blockquote --><!-- BEGIN table -->
+			<table {class}>{text}[table]</table><!-- END table --><!-- BEGIN pre -->
+			<pre {class}>{text}</pre><!-- END pre --><!-- BEGIN none -->
+			{text}[raw]<!-- END none --><!-- BEGIN markdown -->
+			{text}[markdown]<!-- END markdown --><!-- BEGIN markdown3 -->
+			<div class="column3">{text}[markdown]</div><!-- END markdown3 --><!-- BEGIN markdown2 -->
+			<div class="column2">{text}[markdown]</div><!-- END markdown2 -->
+			<!-- END column#text --><!-- BEGIN column#image -->
+			
+			<!-- 画像 -->
+			<div class="column-image-{align}"><!-- BEGIN link#front -->
+				<a href="{url}"{viewer}[raw]><!-- END link#front -->
+					<img class="columnImage" src="%{ROOT_DIR}{path}" alt="{alt}" width="{x}" height="{y}" /><!-- BEGIN link#rear -->
+				</a><!-- END link#rear --><!-- BEGIN caption:veil -->
+				<p class="caption">{caption}</p><!-- END caption:veil -->
+			</div><!-- END column#image --><!-- BEGIN column#file -->
+			
+			<!-- ファイル -->
+			<div class="column-file-{align}">
+				<a href="%{HTTP_ROOT}{path}"><img class="columnIcon" src="%{ROOT_DIR}{icon}" alt="ファイルイメージ" width="{x}" height="{y}" /></a><!-- BEGIN caption:veil -->
+				<p class="caption">{caption}</p><!-- END caption:veil -->
+			</div><!-- END column#file --><!-- BEGIN column#map -->
+			
+			<!-- 地図 -->
+			<img class="column-map-{align}" src="{proxy}http://maps.google.com/staticmap?center={lat},{lng}&zoom={zoom}&size={x}x{y}&maptype=roadmap&markers=<!-- BEGIN marker:loop -->{lat},{lng}<!-- BEGIN glue -->|<!-- END glue --><!-- END marker:loop -->&key=%{GOOGLE_API_KEY}" alt="{msg}" width="{x}" height="{y}" title="クリックで地図が動かせるようになります。" /><!-- END column#map --><!-- BEGIN column#youtube -->
+			
+			<!-- YouTube -->
+			<div class="column-youtube-{align}" >
+				<object width="{x}" height="{y}"><param name="movie" value="http://www.youtube.com/v/0zldvi6V0ms&hl=ja&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/{youtubeId}&hl=ja&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="{x}" height="{y}"></embed></object>
+			</div><!-- END column#youtube --><!-- BEGIN column#eximage -->
+			
+			<!-- 画像URL -->
+			<div class="column-eximage-{align}"><!-- BEGIN link#front -->
+				<a href="{url}" {viewer}[raw]><!-- END link#front -->
+					<img class="columnImage" src="{normal}" alt="{alt}" /><!-- BEGIN link#rear -->
+				</a><!-- END link#rear --><!-- BEGIN caption:veil -->
+				<p class="caption">{caption}</p><!-- END caption:veil -->
+			</div>
+			<!-- END column#eximage --><!-- BEGIN column#break -->
+			
+			<!-- 改ページ -->
+			<!-- {label} -->
+			
+			<!-- END column#break -->
+			
+			<!-- BEGIN inplace#rear --></div><!-- END inplace#rear -->
+			<!-- BEGIN unitGroup#last --></div><!-- END unitGroup#last -->
+			
+			<!-- END column:loop -->
+			<!-- END column:veil -->
+			<!-- 「続きを読む」開始▼▼ -->
+			<!-- BEGIN continueLink:veil -->
+			<p class="readMore"><a href="{continueUrl}">read more... &raquo;</a></p>
+			<!-- END continueLink:veil -->
+			<!-- 「続きを読む」終了▲▲ -->
+			<!-- BEGIN adminEntryEdit -->
+			<!-- エントリーの作成・編集のインクルード -->
+			<!--#include file="/admin/entry/edit.html"-->
+			<!-- エントリーのユニット追加のインクルード -->
+			<!--#include file="/admin/entry/add.html"-->
+			<!-- END adminEntryEdit -->
+			
+			<!-- BEGIN tag:veil -->
+			<aside>tags：<!-- BEGIN tag:loop --><a href="{url}">{name}</a>&nbsp;<!-- END tag:loop --></aside>
+			<!-- END tag:veil -->
+			
+			<!-- エントリーの管理操作ボタンのインクルード -->
+			<!--#include file="/admin/entry/action.html"-->
+			<!-- エントリー本文終了▲▲ -->
+			<hr /></div><!-- //entry-content -->
+		</article>
+		<!-- END entry:loop -->
+		
+		
+		
+		<!-- BEGIN serialNavi:veil -->
+		<!-- BEGIN prevLink -->
+		<h2>prev entry</h2>
+        <form action="{url}" class="js-post_include-ready">
+		<input type="hidden" name="tpl" value="include/post/relationEntrySummary.html" />
+		<input type="hidden" name="ACMS_POST_2GET" value="検索" />
+		</form>
+		<!-- END prevLink -->
+		<!-- END serialNavi:veil -->
+        <!-- END_MODULE Entry_Body -->
+		<!-- エントリー表示▲▲ -->
+		
+		
+		
+		
+		<!-- BEGIN_MODULE Touch_Entry -->
+		<!-- コメント▼▼ -->
+		<div id="comments" class="clearfix">
+			<h2>comment</h2>
+			<section id="respond">
+			<!-- inc:コメントフォーム -->
+			<!--#include file="/admin/comment/edit.html"-->
+			</section>
+			
+			<!-- BEGIN_MODULE Comment_Body -->
+			<!-- BEGIN position:veil -->
+			<aside class="fromTo  webfonts-regular">{from} - {to} / {amount}</aside>
+			<!-- END position:veil -->
+			<!-- BEGIN relation:vail -->
+			<div id="commentMain">
+				<!-- BEGIN comment:loop -->
+				<!-- BEGIN div#front -->
+				<article class="commentEntry">
+					<!-- END div#front -->
+					<!-- BEGIN body:veil -->
+					<h3 id="comment-{cmid}">{title}</h3><!-- BEGIN awaiting#header -->承認待ち<!-- END awaiting#header -->
+					<aside class="webfonts-regular">
+						<!-- BEGIN posterLink#front -->
+						<cite><a href="{url}">
+						<!-- END posterLink#front -->
+						<!-- BEGIN posterName:veil -->
+						{posterName}
+						<!-- END posterName:veil -->
+						<!-- BEGIN posterLink#rear -->
+						</a></cite>
+						<!-- END posterLink#rear -->
+						<time datetime="{date#Y}-{date#m}-{date#d}T{date#H}:{date#i}:{date#s}+09:00" pubdate>{date#Y}.{date#m}.{date#d} {date#H}:{date#i}:{date#s} ( {date#week} )</time>
+					</aside>
+					<!-- BEGIN replyLink:veil -->
+					<p class="commentReply"><a href="{replyUrl}#comment">返信</a></p>
+					<!-- END replyLink:veil -->
+					<div class="commentEntryForm">
+						<!--#include file="/admin/comment/action.html"-->
+					</div>
+					<p class="commnetBody">{body}<!-- BEGIN awaiting#body -->このコメントは承認待ちです。<!-- END awaiting#body --></p>
+					
+					<!-- END body:veil -->
+					<!-- BEGIN div#rear -->
+				</article>
+				<!-- END div#rear -->
+				<!-- END comment:loop -->
+				<!-- BEGIN backLink -->
+				<p><a href="{url}">&laquo; prev comment</a></p>
+				<!-- END backLink -->
+				 
+				<!-- BEGIN forwardLink -->
+				<p><a href="{url}">next comment &raquo;</a></p>
+				<!-- END forwardLink -->
+			</div>
+			<!-- END relation:vail -->
+			<!-- END_MODULE Comment_Body -->
+		</div><!-- //comments -->
+		<!-- コメント▲▲ -->
+		<!-- END_MODULE Touch_Entry -->
+	</div><!-- //main -->
+	<!-- サブカラム▼▼ -->
+	<aside id="sub" class="clearfix">
+		<div id="subLeft">
+			<!-- BEGIN_MODULE User_Profile -->
+			<h2>profile</h2>
+			<!-- BEGIN user:loop -->
+			<!-- BEGIN image:veil -->
+			<img src="%{ARCHIVES_DIR}{image@path}" width="{image@x}" height="{image@y}" alt="{image@alt}" id="profileImg" />
+			<!-- END image:veil -->
+			<!-- BEGIN name:veil -->
+			<h3 id="profileName">{name}</h3>
+			<!-- END name:veil -->
+			<!-- BEGIN position:veil -->
+			<p id="profilePosition">{position}</p>
+			<!-- END position:veil -->
+			<!-- BEGIN title:veil -->
+			<p id="profileTitle">{title}</p>
+			<!-- END title:veil -->
+			<!-- BEGIN profile:veil -->
+			<p id="profileText"  class="webfonts-regular">{profile}[raw]</p>
+			<!-- END profile:veil -->
+			<!-- END user:loop -->
+			<!-- END_MODULE User_Profile -->
+		</div>
+		<!-- BEGIN_MODULE Category_List -->
+		<div id="subRight">
+			<h2>categories</h2><!-- BEGIN category:loop --><!-- BEGIN ul#front -->
+			<ul class="clearfix"><!-- END ul#front --><!-- BEGIN li#front -->
+				<li class="webfonts-light"><!-- END li#front --><!-- BEGIN category:veil -->
+					<a href="{url}">{name}</a><!-- BEGIN amount:veil -->
+					<span> ({amount})</span><!-- END amount:veil --><!-- END category:veil --><!-- BEGIN li#rear -->
+				</li><!-- END li#rear --><!-- BEGIN ul#rear -->
+			</ul><!-- END ul#rear --><!-- END category:loop --><!-- END_MODULE Category_List -->
+			<h2>search</h2>
+			<form method="post" name="searchForm" id="searchForm">
+				<input type="hidden" name="tpl" value="search" />
+				<input type="text" name="keyword" value="%{KEYWORD}" size="30" />
+				<input type="text" class="iebug" style="display: none;" value="" name="iebug" />
+				<input type="submit" name="ACMS_POST_2GET" value="検索" />
+				<input type="hidden" name="bid" value="%{BID}" />
+			</form>
+		</div>
+	</aside>
+	<!-- サブカラム▲▲ -->
+	<!-- フッター▼▼ -->
+	<footer id="contentInfo" role="contentinfo" class="webfonts-light">
+		<p id="toTop"><a class="scrollTo" href="#">top of page ▲</a></p>
+		<p id="copyright">© ra66it.net</p>
+	</footer>
+</div><!-- //content -->
+<!-- フッター▲▲ -->
+<!--#include file="/include/foot/scripts.html"-->
+<!--#include file="/include/foot/style.html"-->
+<!--#include file="/js/ga.js"-->
+</body>
+</html>

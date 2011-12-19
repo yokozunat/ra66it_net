@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--#include file="/include/head/metas.html"-->
+<!--#include file="/include/head/links.html"-->
+<!--#include file="/include/head/scripts.html"-->
+<title><!-- BEGIN_MODULE Touch_Entry -->%{ENTRY_TITLE} | <!-- END_MODULE Touch_Entry --><!-- BEGIN_MODULE Touch_Category -->%{CATEGORY_NAME} | <!-- END_MODULE Touch_Category -->%{BLOG_NAME}</title>
+</head>
+<body>
+<!-- 管理用パーツのインクルード -->
+<!--#include file="/admin/action.html"-->
+<div id="content">
+	<header id="banner" role="banner">
+		<h1 class="logo"><a href="%{BASE_URL}#%{EID}" rel="home">%{BLOG_NAME}</a></h1>
+	</header>
+	
+
+	<!-- メインカラム開始▼▼ -->
+	<div id="main" role="main">
+
+		<!-- 1記事▼▼ -->
+		<div class="entry" id="%{EID}">
+				<p>おさがしのエントリーが見つかりません。blog をリニューアルした際にアドレスが変更してしまったことが原因かもしれません。<br />
+お手数ですが、以下から検索してください。</p>
+        	<form action="" method="post" name="searchForm" id="searchForm">
+				<input type="hidden" name="tpl" value="search" />
+				<input type="text" name="keyword" value="%{KEYWORD}" size="30" />
+				<input type="text" class="iebug" style="display: none;" value="" name="iebug" />
+				<input type="submit" name="ACMS_POST_2GET" value="検索" />
+				<input type="hidden" name="bid" value="%{BID}" />
+			</form>
+		</div>
+	</div>
+	<!-- フッター▼▼ -->
+	<footer id="contentInfo" role="contentinfo" class="webfonts-regular">
+		<p id="toTop"><a class="scrollTo" href="#">top of page ▲</a></p>
+		<p id="copyright">© ra66it.net</p>
+	</footer>
+</div><!-- //content -->
+<!-- フッター▲▲ -->
+<!--#include file="/include/foot/scripts.html"-->
+<!--#include file="/include/foot/style.html"-->
+<!--#include file="/js/ga.js"-->
+</body>
+</html>

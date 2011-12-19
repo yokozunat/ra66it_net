@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="yokozuant" />
+<meta name="copyright" content="Copyright &copy; ra66it.net" />
+<title>%{INHERLINK}</title>
+<link href="../css/acms.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/main.css" rel="stylesheet" type="text/css" media="all" />
+<!-- BEGIN_MODULE Js --><script type="text/javascript" src="/index.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+<!--[if IE]><script type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script type="text/javascript">
+onload = function() {
+	//supports_html5_storage();
+	//storageTest();
+	//eventTest();
+	//saveGrameState();
+	sampleCodeTest();
+};
+function sampleCodeTest(){
+	//console.log(localStorage.length);
+	//localStorage.mango ="マンゴー";
+	//localStorage.banana = "バナナ";
+	//console.log(localStorage.mango);
+	//console.log(localStorage.banana);
+	//console.log(localStorage.key(0));
+	//console.log(localStorage.key(1));
+	/*for(var i=0; i< localStorage.length; i++){
+		console.log(localStorage.key(i));
+	}*/
+	/*for(var j in localStorage){
+		console.log(j);
+	}*/
+	/*for(var j in localStorage){
+		console.log(localStorage[j]);
+	}*/
+	/*
+	var obj = {"key":"value"};
+	var str = JSON.stringify(obj);
+	localStorage.setItem(key,str);
+	console.log(str);
+	
+	var tmp = localStorage.getItem(key);
+	var obj = JSON.parse(tmp);
+	*/
+	
+}
+
+
+
+
+
+
+
+
+
+
+//ストレージのサポートの確認１
+function supports_html5_storage(){
+	try{
+		return ('localStorage' in window) && window['localStorage']!==null;
+	} catch(e) {
+		return false;
+	}
+}
+//ストレージのサポートの確認２
+function supports_html5_storage2(){
+	if(modernizr.localstorage) {
+		//window.localStorageが利用できる
+	} else {
+		//ローカルストレージのネイティブサポートはない
+		//Gearsやその他のサードパーティのソリューションを試してみよう
+	}
+}
+
+function storageTest(){
+	var piyo = "あいうえお";
+	localStorage.setItem("bar", piyo);
+	var foo = localStorage.getItem("bar");
+	console.log(foo);
+}
+
+function localSorageClear(){
+	localStorage.clear();
+}
+
+function eventTest(){
+	if(window.addEventListener){
+		window.addEventListener("storage", handle_storage, false);
+	} else {
+		window.attachEvent("onstorage",handle_storage);
+	}
+
+}
+
+function handle_storage(e){
+	if(!e){
+		e.window.event;
+	}
+}
+
+
+function saveGrameState() {
+	if(!supportsLocalStorage()){ return false; }
+}
+
+
+</script>
+
+</head>
+<body>
+<!-- 管理用パーツのインクルード --><!--#include file="/admin/action.html"-->
+</body>
+</html>

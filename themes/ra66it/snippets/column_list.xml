@@ -1,0 +1,28 @@
+<!-- BEGIN_MODULE Column_List --><?xml version="1.0" encoding="UTF-8"?>
+<columnList><!-- BEGIN column:loop -->
+    <column>
+        <column_id>{column_id}</column_id>
+        <column_sort>{column_sort}</column_sort>
+        <column_align>{column_align}</column_align>
+        <column_type>{column_type}</column_type>
+        <column_attr>{column_attr}</column_attr>
+        <column_size>{column_size}</column_size>
+        <column_field_1>{column_field_1}</column_field_1>
+        <column_field_2>{column_field_2}</column_field_2>
+        <column_field_3>{column_field_3}</column_field_3>
+        <column_field_4>{column_field_4}</column_field_4>
+        <column_field_5>{column_field_5}</column_field_5>
+        <column_entry_id>{column_entry_id}</column_entry_id>
+        <column_blog_id>{column_blog_id}</column_blog_id><!-- BEGIN tiny:veil -->
+        <image_tiny_url>%{ARCHIVES_DIR}{tiny}</image_tiny_url><!-- END tiny:veil --><!-- BEGIN normal:veil -->
+        <image_normal_url>%{ARCHIVES_DIR}{normal}</image_normal_url><!-- END normal:veil --><!-- BEGIN large:veil -->
+        <image_large_url>%{ARCHIVES_DIR}{large}</image_large_url><!-- END large:veil -->
+        <entry_title>{entry_title}</entry_title>
+        <entry_url>{entry_url}</entry_url>
+        <entry_datetime>{entry_datetime}</entry_datetime><!-- BEGIN category:veil -->
+        <category_name>{category_name}</category_name>
+        <category_url>{category_url}</category_url><!-- END category:veil -->
+        <blog_name>{blog_name}</blog_name>
+        <blog_url>{blog_url}</blog_url>
+    </column><!-- END column:loop -->
+</columnList><!-- END_MODULE Column_List -->

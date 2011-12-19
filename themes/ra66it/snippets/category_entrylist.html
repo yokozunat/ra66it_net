@@ -1,0 +1,10 @@
+<!-- BEGIN_MODULE Category_EntryList -->
+<!-- BEGIN categoryEntryList:loop --><!-- BEGIN categoryUl#front -->
+<ul class="txtListMenu"><!-- END categoryUl#front --><!-- BEGIN category:loop -->
+	<li><a href="{categoryUrl}">( {categoryLevel} ){categoryName}</a><!-- BEGIN entry:veil -->
+		<ul class="txtListMenu"><!-- BEGIN entry:loop -->
+			<li><a href="{entryUrl}">( {entryLevel} ){entryTitle}</a></li><!-- END entry:loop -->
+		</ul><!-- END entry:veil --><!-- END category:loop --><!-- BEGIN categoryLi#rear -->
+	</li><!-- END categoryLi#rear --><!-- BEGIN categoryUl#rear -->
+</ul><!-- END categoryUl#rear --><!-- END categoryEntryList:loop -->
+<!-- END_MODULE Category_EntryList -->

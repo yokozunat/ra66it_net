@@ -1,0 +1,105 @@
+<!-- BEGIN_MODULE Entry_Body -->
+<!-- BEGIN notFound -->
+<p>お探しのエントリーは見つかりませんでした。</p>
+<!-- END notFound -->
+
+<!-- BEGIN serialNavi:veil -->
+<ul>
+	<li>
+		<!-- BEGIN prevLink -->
+		<a href="{url}">&lt;&lt; {name}[trim(27, '...')|escape]</a>
+		<!-- END prevLink -->
+		&nbsp;</li>
+	<li><a href="{upperUrl}">一覧へ</a></li>
+	<li>&nbsp;
+		<!-- BEGIN nextLink -->
+		<a href="{url}">{name}[trim(27, '...')|escape] &gt;&gt;</a>
+		<!-- END nextLink -->
+	</li>
+</ul>
+<!-- END serialNavi:veil -->
+
+<!-- BEGIN entry:loop -->
+<div>
+	<!-- BEGIN date:veil -->
+	<p>{date#Y}.{date#m}.{date#d}</p>
+	<!-- END date:veil -->
+</div>
+<div>
+	<!--#include file="/admin/entry/title.html"-->
+	<!-- BEGIN title:veil -->
+	<div>
+		<h2><a href="{titleUrl}">{title}[raw]</a></h2>
+		<!-- BEGIN category:veil -->
+		<p>カテゴリー：
+			<!-- BEGIN category:loop -->
+			<span><a href="{url}">{name}</a></span>
+			<!-- BEGIN glue -->
+			&lt;
+			<!-- END glue -->
+			<!-- END category:loop -->
+			</p>
+		<!-- END category:veil -->
+	</div>
+	<!-- END title:veil -->
+	<div>
+		<!-- BEGIN column:veil -->
+		<!--#include file="/include/column.html"-->
+		<hr />
+		<!-- END column:veil -->
+		<!-- BEGIN continueLink:veil -->
+		<p><a href="{continueUrl}">「{continueName}」の続きを読む</a></p>
+		<!-- END continueLink:veil -->
+		<!-- BEGIN adminEntryEdit -->
+		<!--#include file="/admin/entry/edit.html"-->
+		<!--#include file="/admin/entry/add.html"-->
+		<!-- END adminEntryEdit -->
+		<!-- BEGIN tag:veil -->
+		<p>関連タグ：<!-- BEGIN tag:loop --><a href="{url}">{name}</a>&nbsp;<!-- END tag:loop --></p>
+		<!-- END tag:veil -->
+		<!--#include file="/admin/entry/action.html"-->
+	</div>
+	<!-- BEGIN footer:veil -->
+	<div>
+		<p>Posted&nbsp;by {posterName}&nbsp;at {hour}:{min}&nbsp; <a href="{inheritUrl}#permalink">パーマリンク</a>
+			<!-- BEGIN trackbackAmount -->
+			<a href="{trackbackUrl}#trackback">トラックバック ( {trackbackAmount} )</a>
+			<!-- END trackbackAmount -->
+			<!-- BEGIN commentAmount -->
+			<a href="{commentUrl}#comment">コメント ( {commentAmount} )</a>
+			<!-- END commentAmount -->
+		</p>
+	</div>
+	<!-- END footer:veil -->
+</div>
+<!-- END entry:loop -->
+
+<!-- BEGIN pager:veil -->
+<p>
+	全 {itemsAmount} 件中 {itemsFrom} 〜 {itemsTo} 件目を表示
+	<!-- BEGIN page:loop --><!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue -->, <!-- END glue --><!-- END page:loop -->
+	<!-- BEGIN lastPage:veil --> ...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil -->
+</p>
+<p>
+	<!-- BEGIN backLink --><a href="{url}">&laquo; 前の{backNum}件</a><!-- END backLink -->
+	<!-- BEGIN forwardLink --><a href="{url}">次の{forwardNum}件 &raquo;</a><!-- END forwardLink -->
+</p>
+<!-- END pager:veil -->
+
+
+<!-- BEGIN micropager -->
+<p>
+    全 {itemsAmount} 件中 {itemsFrom} 〜 {itemsTo} 件目を表示
+    <!-- BEGIN page:loop --><!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue -->, <!-- END glue --><!-- END page:loop -->
+    <!-- BEGIN lastPage:veil --> ...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil -->
+</p>
+<p>
+    <!-- BEGIN backLink --><a href="{url}">&laquo; 前の{backNum}件</a><!-- END backLink -->
+    <!-- BEGIN forwardLink --><a href="{url}">次の{forwardNum}件 &raquo;</a><!-- END forwardLink -->
+</p><!-- END micropager -->
+
+<!-- BEGIN micropage:veil --><!-- BEGIN micropageLink -->
+<p><a href="{url}">{label}</a></p><!-- END micropageLink --><!-- END micropage:veil -->
+
+
+<!-- END_MODULE Entry_Body -->

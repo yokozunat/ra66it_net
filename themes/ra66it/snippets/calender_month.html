@@ -1,0 +1,34 @@
+<!-- BEGIN_MODULE Calendar_Month -->
+<div>
+	<div>
+		<p><a href="{monthUrl}">{month}</a></p>
+		<p>
+			<a href="{prevUrl}" title="前月へ">&laquo;</a>
+			<a href="{yearUrl}" title="年間カレンダーへ">{year}</a>
+			<a href="{nextUrl}" title="次月へ">&raquo;</a>
+		</p>
+	</div>
+	<table summary="calender">
+		<tr>
+			<!-- BEGIN weekLabel:loop -->
+			<td >{label}</td>
+			<!-- END weekLabel:loop -->
+		</tr>
+		<!-- BEGIN week:loop -->
+		<tr align="right">
+			<!-- BEGIN day:loop -->
+			<!-- BEGIN spacer -->
+			<td>&nbsp;</td>
+			<!-- END spacer -->
+			<!-- BEGIN none -->
+			<td>{day}</td>
+			<!-- END none -->
+			<!-- BEGIN link -->
+			<td><a href="{url}">{day}</a></td>
+			<!-- END link -->
+			<!-- END day:loop -->
+		</tr>
+		<!-- END week:loop -->
+	</table>
+</div>
+<!-- END_MODULE Calendar_Month -->

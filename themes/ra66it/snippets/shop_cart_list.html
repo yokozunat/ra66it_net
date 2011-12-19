@@ -1,0 +1,39 @@
+<!-- BEGIN_MODULE Shop_Cart_List -->
+
+<!-- BEGIN notFound -->
+<p>カート内に商品がありません</p>
+<!-- END notFound -->
+
+<!-- BEGIN contents -->
+<table>
+    <tr>
+        <th>No</th>
+        <th>写真</th>
+        <th>商品名</th>
+        <th>単価</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>削除</th>
+    </tr><!-- BEGIN item:loop -->
+    <tr>
+        <td>{item_id}</td>
+        <td>
+            <div style="width:{x}px; height:{y}px; overflow:hidden;"><!-- BEGIN image:veil -->
+        	<img src="%{ROOT_DIR}{path}" width="{imgX}" height="{imgY}" style="left:{left}px; top:{top}px; position:relative;" /><!-- END image:veil --><!-- BEGIN noimage -->
+        	noimage<!-- END noimage -->
+            </div>
+        </td>
+        <td><a href="{url}">{item_name}</a></td>
+        <td>&yen;{item_price}[number_format] (税{item_price#tax})</td>
+        <td>{item_quantity}</td>
+        <td>&yen;{item_price#sum}[number_format]</td>
+        <td><a href="?delete={item_id}">削除</a></td>
+    </tr><!-- END item:loop -->
+    <tr>
+        <th colspan="7">カート内 商品{amount}点</th>
+        <th colspan="7">税抜{tax-omit} : 税計{tax-only}</th>
+        <th colspan="7">お会計の合計&yen;{subtotal}[number_format]</th>
+    </tr>
+</table>
+<!-- END contents -->
+<!-- END_MODULE Shop_Cart_List -->

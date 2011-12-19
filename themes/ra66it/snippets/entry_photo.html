@@ -1,0 +1,19 @@
+<!-- BEGIN_MODULE Entry_Photo -->
+
+<!-- BEGIN notFound -->
+<p>エントリーが見つかりませんでした。</p>
+<!-- END notFound -->
+
+<table><!-- BEGIN unit:loop -->
+	<tr><!-- BEGIN entry:loop -->
+		<td>
+			<div style="width:{x}px; height:{y}px; overflow:hidden;"><!-- BEGIN image:veil -->
+				<img src="%{ROOT_DIR}{path}" width="{imgX}" height="{imgY}" style="left:{left}px; top:{top}px; position:relative;" /><!-- END image:veil --><!-- BEGIN noimage -->
+				noimage
+				<!-- END noimage -->
+			</div>
+			<p><a href="{url}">{title}</a></p>
+		</td><!-- END entry:loop -->
+	</tr><!-- END unit:loop -->
+</table>
+<!-- END_MODULE Entry_Photo -->

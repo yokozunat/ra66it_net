@@ -1,0 +1,21 @@
+<!-- BEGIN_MODULE User_Profile -->
+<!-- BEGIN user:loop -->
+<div>
+	<!-- BEGIN image:veil -->
+	<img src="%{ARCHIVES_DIR}{image@path}" width="{image@x}" height="{image@y}" alt="{image@alt}" />
+	<!-- END image:veil -->
+	<!-- BEGIN position:veil -->
+	<p>{profilePosition}</p>
+	<!-- END position:veil -->
+	<!-- BEGIN title:veil -->
+	<p>{title}</p>
+	<!-- END title:veil -->
+	<!-- BEGIN name:veil -->
+	<p>{name}</p>
+	<!-- END name:veil -->
+	<!-- BEGIN profile:veil -->
+	<p>{profile}[raw]</p>
+	<!-- END profile:veil -->
+</div>
+<!-- END user:loop -->
+<!-- END_MODULE User_Profile -->

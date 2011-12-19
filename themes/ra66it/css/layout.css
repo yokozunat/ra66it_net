@@ -1,0 +1,61 @@
+@charset "utf-8"; 
+
+/* ---------------
+layout.css
+テンプレート内のレイアウト・構成の形を定義しています。
+--------------- */
+
+/* コンテンツ全体 */
+#wrapper {
+	width: 760px;
+	margin: 0px auto;
+	padding: 0;
+	_text-align: center;
+}
+
+/* ヘッダ */
+#header {
+	width: 700px;
+	margin: 0 20px;
+	padding: 0 10px 10px 10px;
+	/*background: #F1F1F1;*/
+	font-size: 1em;
+	text-align: left;
+}
+
+/* メインカラム */
+#main {
+	display: inline;
+	float: left;
+	width: 520px;
+	margin: 20px 0 20px 20px;
+	padding: 0;
+	text-align:left;
+}
+
+/* サブカラム */
+#sub {
+	display: inline;
+	float: right;
+	width: 180px;
+	margin: 20px 20px 20px 0;
+	padding:0;
+	text-align:left;
+}
+
+/* フッタ */
+#footer {
+	clear:both;
+	width:756px;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	text-align:left;
+	zoom:1;
+}
+.footer:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}

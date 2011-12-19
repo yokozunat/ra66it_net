@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="yokozuant" />
+<meta name="copyright" content="Copyright &copy; ra66it.net" />
+<title>%{INHERLINK}</title>
+<link href="../css/acms.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/main.css" rel="stylesheet" type="text/css" media="all" />
+<!-- BEGIN_MODULE Js --><script type="text/javascript" src="/index.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+<!--[if IE]><script type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script type="text/javascript">
+onload = function() {
+  draw();
+  draw2();
+  draw3();
+};
+function draw() {
+  var canvas = document.getElementById('c1');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  /* グラデーション領域をセット */
+  var grad  = ctx.createLinearGradient(0,0, 0,140);
+  /* グラデーション終点のオフセットと色をセット */
+  grad.addColorStop(0,'rgb(192, 80, 77)');    // 赤
+  grad.addColorStop(0.5,'rgb(155, 187, 89)'); // 緑
+  grad.addColorStop(1,'rgb(128, 100, 162)');  // 紫
+  /* グラデーションをfillStyleプロパティにセット */
+  ctx.fillStyle = grad;
+  /* 矩形を描画 */
+  ctx.rect(0,0, 140,140);
+  ctx.fill();
+}
+function draw2() {
+  var canvas = document.getElementById('c2');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  /* グラデーション領域をセット */
+  var grad  = ctx.createLinearGradient(0,0, 140,0);
+  /* グラデーション終点のオフセットと色をセット */
+  grad.addColorStop(0,'rgb(192, 80, 77)');    // 赤
+  grad.addColorStop(0.5,'rgb(155, 187, 89)'); // 緑
+  grad.addColorStop(1,'rgb(128, 100, 162)');  // 紫
+  /* グラデーションをfillStyleプロパティにセット */
+  ctx.fillStyle = grad;
+  /* 矩形を描画 */
+  ctx.rect(0,0, 140,140);
+  ctx.fill();
+  }
+function draw3() {
+  var canvas = document.getElementById('c3');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  /* グラデーション領域をセット */
+  var grad  = ctx.createLinearGradient(0,0, 140,140);
+  /* グラデーション終点のオフセットと色をセット */
+  grad.addColorStop(0,'rgb(192, 80, 77)');    // 赤
+  grad.addColorStop(0.5,'rgb(155, 187, 89)'); // 緑
+  grad.addColorStop(1,'rgb(128, 100, 162)');  // 紫
+  /* グラデーションをfillStyleプロパティにセット */
+  ctx.fillStyle = grad;
+  /* 矩形を描画 */
+  ctx.rect(0,0, 140,140);
+  ctx.fill();
+  }
+</script>
+
+</head>
+<body>
+<!-- 管理用パーツのインクルード --><!--#include file="/admin/action.html"-->
+<h1>Canvas</h1>
+<h2>縦向きの線形グラデーション</h2>
+<canvas id="c1" width="140" height="140"></canvas>
+<h2>横向きの線形グラデーション</h2>
+<canvas id="c2" width="140" height="140"></canvas>
+<h2>斜め向きの線形グラデーション</h2>
+<canvas id="c3" width="140" height="140"></canvas>
+</body>
+</html>

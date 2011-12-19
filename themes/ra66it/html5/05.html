@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja" manifest="">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="yokozuant" />
+<meta name="copyright" content="Copyright &copy; ra66it.net" />
+<title>%{INHERLINK}</title>
+<link href="../css/acms.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/main.css" rel="stylesheet" type="text/css" media="all" />
+<!-- BEGIN_MODULE Js --><script type="text/javascript" src="/index.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+<!--[if IE]><script type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script type="text/javascript">
+onload = function() {
+  draw();
+  draw2();
+  draw3();
+};
+function draw() {
+  var canvas = document.getElementById('c1');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  /* 円 #1 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(192, 80, 77)'; // 赤
+  ctx.arc(70, 45, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #2 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(155, 187, 89)'; // 緑
+  ctx.arc(45, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #3 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(128, 100, 162)'; // 紫
+  ctx.arc(95, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  }
+  function draw2() {
+  var canvas = document.getElementById('c2');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  /* 円 #1 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgba(192, 80, 77, 0.7)'; // 赤
+  ctx.arc(70, 45, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #2 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgba(155, 187, 89, 0.7)'; // 緑
+  ctx.arc(45, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #3 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgba(128, 100, 162, 0.7)'; // 紫
+  ctx.arc(95, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  }
+  function draw3() {
+  var canvas = document.getElementById('c3');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  var ctx = canvas.getContext('2d');
+  /* 半透明度を指定 */
+  ctx.globalAlpha = 0.7;
+  /* 円 #1 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(192, 80, 77)'; // 赤
+  ctx.arc(70, 45, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #2 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(155, 187, 89)'; // 緑
+  ctx.arc(45, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+  /* 円 #3 */
+  ctx.beginPath();
+  ctx.fillStyle = 'rgb(128, 100, 162)'; // 紫
+  ctx.arc(95, 95, 35, 0, Math.PI*2, false);
+  ctx.fill();
+}
+</script>
+
+</head>
+<body>
+<!-- 管理用パーツのインクルード --><!--#include file="/admin/action.html"-->
+<h1>Canvas</h1>
+<h2>色を指定する</h2>
+<canvas id="c1" width="140" height="140"></canvas>
+<h2>半透明度を指定する（rgbaフォーマットによる色指定）</h2>
+<canvas id="c2" width="140" height="140"></canvas>
+<h2>半透明度を指定する（globalAlphaプロパティ）</h2>
+<canvas id="c3" width="140" height="140"></canvas>
+</body>
+</html>

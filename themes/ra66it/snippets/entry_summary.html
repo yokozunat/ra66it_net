@@ -1,0 +1,33 @@
+<!-- BEGIN_MODULE Entry_Summary -->
+
+<!-- BEGIN notFound -->
+<p>エントリーが見つかりませんでした。</p>
+<!-- END notFound -->
+
+<table><!-- BEGIN unit:loop -->
+	<tr><!-- BEGIN entry:loop -->
+		<td>
+			<div style="width:{x}px; height:{y}px; overflow:hidden; border: 1px solid black;"><!-- BEGIN image:veil -->
+				<img src="%{ROOT_DIR}{path}" width="{imgX}" height="{imgY}" style="left:{left}px; top:{top}px; position:relative;" /><!-- END image:veil --><!-- BEGIN noimage -->
+				noimage
+				<!-- END noimage -->
+			</div>
+			<p><a href="{url}">{title}</a></p>
+			<p>{summary}[trim(51, '...')]</p>
+		</td><!-- END entry:loop -->
+	</tr><!-- END unit:loop -->
+</table>
+
+<!-- BEGIN pager:veil -->
+<p>
+	全 {itemsAmount} 件中 {itemsFrom} 〜 {itemsTo} 件目を表示
+	<!-- BEGIN page:loop --><!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue -->, <!-- END glue --><!-- END page:loop -->
+	<!-- BEGIN lastPage:veil --> ...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil -->
+</p>
+<p>
+	<!-- BEGIN backLink --><a href="{url}">&laquo; 前の{backNum}件</a><!-- END backLink -->
+	<!-- BEGIN forwardLink --><a href="{url}">次の{forwardNum}件 &raquo;</a><!-- END forwardLink -->
+</p>
+<!-- END pager:veil -->
+
+<!-- END_MODULE Entry_Summary -->

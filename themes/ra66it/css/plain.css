@@ -1,0 +1,782 @@
+@charset "utf-8";
+/* ---------------
+汎用スタイル style.css
+テンプレートにあるclassの初期値設定
+--------------- */
+
+
+/* 強調表示 */
+.emSection,
+#main .emSection .aNameHover {
+	color: #FF0000 !important;
+	text-align: left;
+}
+/* 汎用ボタン囲み */
+.btnBox {
+	min-height: 30px;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+/* 本文内ナビゲーション用囲み */
+.guideBox {
+}
+
+
+
+
+
+/* ---------------
+ヘッダ
+--------------- */
+/* サイトタイトル */
+#siteTitle {
+	font-size: 2em;
+	padding: 20px 10px 10px 10px;
+}
+#siteTitle a:link,
+#siteTitle a:visited,
+#siteTitle a:hover,
+#siteTitle a:active {
+	/*font-weight: bold;*/
+}
+
+
+/* ---------------
+メイン
+--------------- */
+/* ログイン後のadminボタン囲み */
+#adminBox {
+	border: #CCCCCC 1px solid;
+	background: #E9E9E9;
+}
+
+/* 日毎のループ内トップ,コメントトップ,トラックバックトップ */
+.boxHeader {
+	_width: 100%;
+	padding: 10px 0;
+	clear: both;
+}
+/* 日付表示の基本設定 */
+.dateClass {
+	padding-right: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+/* 日付表示(日曜) */
+.date0 {
+	color: #FF3300;
+}
+/* 日付表示(平日) */
+.date,
+.date1,
+.date2,
+.date3,
+.date4,
+.date5 {
+	color: #333333;
+}
+/* 日付表示(土曜) */
+.date6 {
+	color: #004B71;
+}
+
+
+/* タグの絞り込みボックス */
+#wrapper #main .guideBox #tagBox {
+	text-align: left;
+}
+/* 選択されたタグ */
+#wrapper #main #tagBox #selectTag {
+	text-indent: -10em;
+	_text-indent: -9em;
+	margin: 0.5em 0 1em 10em;
+}
+/* 選択されたタグ - ie7用の処理 */
+*+html #wrapper #main #tagBox #selectTag {
+	text-indent: -9.5em;
+}
+/* タグの絞り込み */
+#wrapper #main #tagBox #nextTagTitle {
+	text-indent: -8em;
+	_text-indent: -7em;
+	margin: 0.5em 0 1em 8em;
+}
+/* タグの絞り込み - ie7用の処理 */
+*+html #wrapper #main #tagBox #nextTagTitle {
+	text-indent: -7.5em;
+}
+
+
+/* エントリー送り */
+/* 左側(戻る) */
+#main .oldList {
+	float:left;
+	text-align:left;
+	width:40%;
+}
+/* 中央(一覧) */
+#main .allList {
+	float:left;
+	text-align:center;
+	width:18%;
+}
+/* 右側(進む) */
+#main .newList {
+	float:right;
+	text-align:right;
+	width:40%;
+}
+
+
+/* ---------------
+メイン内　エントリー
+--------------- */
+/* エントリーループ{newsBox}と同じdivに設定 */
+.entryWrapper {
+	margin: 0 0 20px 0;
+	/*padding: 10px 10px 10px 10px;*/
+	/*_width: 100%; ieで背景色を指定する場合は幅も指定する*/
+}
+/* エントリーヘッダー */
+.entryHeader {
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+/* エントリータイトル */
+.entryTitle {
+	font-size: 18px;
+	line-height: 1.4;
+}
+/* エントリーのカテゴリー */
+.entryCategory {
+	text-align: right;
+}
+
+/* 内包する要素を設定するためのclass .entry-----------------  */
+.entry {
+	margin: 0;
+	padding: 0 0 10px 0;
+}
+.entry h2 {
+	margin: 0 0 7px 0;
+	padding: 7px 0;
+	font-size: 14px;
+}
+.entry h3 {
+	margin: 0 0 7px 0;
+	padding: 7px 0;
+	font-size: 14px;
+}
+.entry h4 {
+	margin: 0 0 7px 0;
+	padding: 7px 0;
+	font-size: 14px;
+}
+.entry h5 {
+	margin: 0 0 7px 0;
+	padding: 7px 0;
+}
+.entry p {
+	padding: 7px 0;
+}
+.entry blockquote p {
+	font-size: 1em;
+}
+.entry ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	margin: 0 0 1em 1.6em;
+}
+.entry ul li {
+	margin: 0 0 0.5em 0;
+	padding: 0 0 0 0;
+	line-height: 1.2;
+}
+.entry ol {
+	list-style-position: inside;
+	margin: 0 0 1em 0;
+	margin: 0 0 1em 1.6em;
+	padding: 0;
+}
+.entry ol li {
+	margin: 0 0 0.5em 0;
+	_margin: 0 0 0.5em 1em;
+	padding: 0 0 0 0;
+	line-height:1.2;
+}
+.entry dl {
+	width: 98%;
+	line-height:1.2;
+}
+.entry pre {
+	overflow: auto;
+	_overflow: scroll;
+	clear: both;
+	max-height: 10em;
+	_height: 6em;
+	width:  90%;
+	margin: 5px 0 5px 10px;
+	padding: 10px;
+	background: #E7E7E7;
+}
+.entry blockquote {
+	clear: both;
+	padding: 17px 20px;
+}
+.entry table {
+	margin: 0 0 10px 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+.entry table caption {
+	background: #E7E7E7;
+}
+.entry tr {
+	margin: 0;
+	padding: 0;
+}
+.entry th {
+	padding: 0.5em 0.8em;
+	border: 1px solid #CCCCCC;
+	background: #ECECEC;
+	font-weight: normal;
+	text-align: left;
+}
+.entry td {
+	padding: 0.5em 0.8em;
+	border: 1px solid #CCCCCC;
+}
+
+.entry .newsTag {
+	text-indent: -4.5em;
+	margin: 1em 0 0 5em;
+}
+
+/* 続きを読むリンク */			
+.continueLink {
+	margin: 10px 0;
+	padding: 10px 0;
+}
+
+/* 記事フッター */
+.entryFooter {
+	padding: 8px 0 0 0;
+	border-top: 1px solid #EEEEEE;
+	font-size: 1em;
+	text-align: right;
+}
+
+/* 記事の付帯情報 */
+.entryFooter p {
+	text-align: right;
+	font-size: 1em;
+	margin: 0 20px 10px 0;
+}
+
+/* jsBanner.htmlで使用 */
+/* バナー */
+.bannerBox {
+	text-align: center;
+	margin: 0 auto 10px auto;
+}
+
+
+/* ---------------
+添付ファイル関連
+--------------- */
+
+/* 添付画像 */
+.columnImage {
+/*
+	padding: 5px;
+	border-top: solid 1px #C0C0C0;
+	border-right: solid 1px #808080;
+	border-bottom: solid 1px #808080;
+	border-left: solid 1px #C0C0C0;
+	background: #FFFFFF;
+	*/
+}
+/* 添付ファイルアイコン */
+.columnIcon {
+	padding: 5px;
+}
+/* 添付ファイルのキャプション */
+.caption {
+	margin: 7px 0 5px;
+	padding: 0 5px;
+	color: #666666;
+	font-size: 88% !important;
+	text-align: center;
+	line-height: 1.2;
+}
+.nocaption {
+	margin-bottom: 10px;
+}
+
+
+/* ---------
+検索結果 
+------------*/
+
+.infoHeading {
+	background: #CCCCCC;
+	margin: 0px;
+	padding: 5px;
+}
+#allBox #mainBox .entryBox .continueBtn {
+	text-align: right;
+	margin: 10px 0px;
+}
+.tagListMenu {
+	margin: 0px;
+	padding: 0px;
+}
+.tagListMenu li {
+display:inline;
+line-height:1.4;
+margin:0;
+padding:0 6px 0 0;
+}
+
+/* ---------------
+フォーム
+--------------- */
+
+/* コメント・トラックバックの囲み */
+.relationWrapper {
+	margin: 0 0 20px 0;
+	padding: 10px;
+}
+/* 「コメント」「トラックバック」タイトル部分囲み */
+/*.boxHeader {
+　上に記載済み
+}*/
+/* 「コメント」「トラックバック」タイトル部分 */
+.relationHeader {
+	font-size: 1.5em;/* 18px相当 */
+}
+/* 内包する要素を設定するためのclass .relation-----------------  */
+.relation {
+}
+.relationTitle {
+	margin: 0 0 0.5em 0;
+}
+.relation form {
+	width: 100%;
+	overflow: hidden;
+}
+/* .relationに内包する要素に関する記述ここまで----------------- */
+.comPost {/* 投稿ボタン */
+	text-align: center;
+	margin-bottom:30px;
+}
+.open { /* 変数が出力するclass　公開状態 */
+}
+.close { /* 変数が出力するclass　非公開状態 */
+	background:#CECECE;
+}
+.awaiting { /* 変数が出力するclass　承認待ち状態 */
+	background: #E6E6E6;
+}
+.passBox { /* 各コメント・各トラックバック囲み */
+	padding: 10px;
+	margin: 0 0 10px 0;
+}
+.passBox h3 {
+}
+.passBox p {
+}
+.passBox p.entryFooter {
+	font-size: 1em;
+	margin-top: 1em;
+}
+#textfield {
+	width: 88%;
+}
+.relation p {
+}
+.formSizeHarf {
+	width:45%;
+}
+.formSizeFull {
+	width:80%;
+}
+.relationNaviNext {
+	float: left;
+	text-align: left;
+	width: 47%;
+}
+.relationNaviPrev {
+	float: right;
+	text-align: right;
+	width: 47%;
+}
+/* コメント、トラックバックの付帯情報 */
+.relationFooter {
+	margin: 0 0 10px 0;
+	text-align: right;
+	font-size: 1em;
+}
+
+/* ページ送り */
+div.entryListNavi {
+	font-size:1em;
+}
+.backPageLink {
+	float: left;
+	text-align: left;
+	width: 20%;
+}
+.PageLink {
+	float: left;
+	text-align: center;
+	width: 60%;
+}
+.forwardPageLink {
+	float: left;
+	text-align: right;
+	width: 20%;
+}
+
+/* ---------------
+サブカラムの内容
+--------------- */
+/* サブカラム内コンテンツ個別のボックス */
+.menuListBox {
+	margin: 0 0 20px 0;
+}
+/* サブカラム内コンテンツタイトル */
+.menuListBox h3 {
+	margin: 0;
+	padding: 5px;
+}
+
+/*  */
+.menuListBox ul {
+	margin: 0;
+	padding: 5px;
+}
+.menuListBox ul li {
+	padding: 0 0 0.5em 7px;
+	background: url(../images/marker.gif) 0 5px no-repeat;
+	line-height: 1.6;
+}
+
+
+/* プロフィール */
+#profileImg {
+	margin: 10px 20px 0 0;
+	float: left;
+}
+#profilePosition {
+}
+#profileTitle {
+}
+#profileName {
+	margin: 5px 0;
+}
+#profileText {
+	margin: 5px 0;
+}
+
+
+/* ------------
+タグ 
+---------------- */
+
+/* タグ */
+.tagListMenu li {
+	display: inline;
+	margin:  0;
+	padding: 0 6px 0 0;
+	line-height: 1.4;
+}
+/* タグリストのサイズ設定
+タグの総数のうちから、登録数の少ない順に、.tagSize1に1~4%,.tagSize2に5~8%-------.tagSize25に96~100%というように割り振られます。
+タグの登録数が少ない場合は極端な分布になりますので、問題があれば適宜調整することになります。
+ */
+.tagListMenu .tagSize1 a:link,
+.tagListMenu .tagSize1 a:visited,
+.tagListMenu .tagSize1 a:hover,
+.tagListMenu .tagSize1 a:active {
+	font-size: 10px;
+}
+.tagListMenu .tagSize2 a:link,
+.tagListMenu .tagSize2 a:visited,
+.tagListMenu .tagSize2 a:hover,
+.tagListMenu .tagSize2 a:active {
+	font-size: 10px;
+}
+.tagListMenu .tagSize3 a:link,
+.tagListMenu .tagSize3 a:visited,
+.tagListMenu .tagSize3 a:hover,
+.tagListMenu .tagSize3 a:active {
+	font-size: 11px;
+}
+.tagListMenu .tagSize4 a:link,
+.tagListMenu .tagSize4 a:visited,
+.tagListMenu .tagSize4 a:hover,
+.tagListMenu .tagSize4 a:active {
+	font-size: 11px;
+}
+.tagListMenu .tagSize5 a:link,
+.tagListMenu .tagSize5 a:visited,
+.tagListMenu .tagSize5 a:hover,
+.tagListMenu .tagSize5 a:active {
+	font-size: 12px;
+}
+.tagListMenu .tagSize6 a:link,
+.tagListMenu .tagSize6 a:visited,
+.tagListMenu .tagSize6 a:hover,
+.tagListMenu .tagSize6 a:active {
+	font-size: 12px;
+}
+.tagListMenu .tagSize7 a:link,
+.tagListMenu .tagSize7 a:visited,
+.tagListMenu .tagSize7 a:hover,
+.tagListMenu .tagSize7 a:active {
+	font-size: 12px;
+}
+.tagListMenu .tagSize8 a:link,
+.tagListMenu .tagSize8 a:visited,
+.tagListMenu .tagSize8 a:hover,
+.tagListMenu .tagSize8 a:active {
+	font-size: 12px;
+}
+.tagListMenu .tagSize9 a:link,
+.tagListMenu .tagSize9 a:visited,
+.tagListMenu .tagSize9 a:hover,
+.tagListMenu .tagSize9 a:active {
+	font-size: 12px;
+}
+.tagListMenu .tagSize10 a:link,
+.tagListMenu .tagSize10 a:visited,
+.tagListMenu .tagSize10 a:hover,
+.tagListMenu .tagSize10 a:active {
+	font-size: 13px;
+}
+.tagListMenu .tagSize11 a:link,
+.tagListMenu .tagSize11 a:visited,
+.tagListMenu .tagSize11 a:hover,
+.tagListMenu .tagSize11 a:active {
+	font-size: 13px;
+}
+.tagListMenu .tagSize12 a:link,
+.tagListMenu .tagSize12 a:visited,
+.tagListMenu .tagSize12 a:hover,
+.tagListMenu .tagSize12 a:active {
+	font-size: 13px;
+}
+.tagListMenu .tagSize13 a:link,
+.tagListMenu .tagSize13 a:visited,
+.tagListMenu .tagSize13 a:hover,
+.tagListMenu .tagSize13 a:active {
+	font-size: 14px;
+}
+.tagListMenu .tagSize14 a:link,
+.tagListMenu .tagSize14 a:visited,
+.tagListMenu .tagSize14 a:hover,
+.tagListMenu .tagSize14 a:active {
+	font-size: 14px;
+}
+.tagListMenu .tagSize15 a:link,
+.tagListMenu .tagSize15 a:visited,
+.tagListMenu .tagSize15 a:hover,
+.tagListMenu .tagSize15 a:active {
+	font-size: 15px;
+}
+.tagListMenu .tagSize16 a:link,
+.tagListMenu .tagSize16 a:visited,
+.tagListMenu .tagSize16 a:hover,
+.tagListMenu .tagSize16 a:active {
+	font-size: 15px;
+}
+.tagListMenu .tagSize17 a:link,
+.tagListMenu .tagSize17 a:visited,
+.tagListMenu .tagSize17 a:hover,
+.tagListMenu .tagSize17 a:active {
+	font-size: 15px;
+}
+.tagListMenu .tagSize18 a:link,
+.tagListMenu .tagSize18 a:visited,
+.tagListMenu .tagSize18 a:hover,
+.tagListMenu .tagSize18 a:active {
+	font-size: 15px;
+}
+.tagListMenu .tagSize19 a:link,
+.tagListMenu .tagSize19 a:visited,
+.tagListMenu .tagSize19 a:hover,
+.tagListMenu .tagSize19 a:active {
+	font-size: 15px;
+}
+.tagListMenu .tagSize20 a:link,
+.tagListMenu .tagSize20 a:visited,
+.tagListMenu .tagSize20 a:hover,
+.tagListMenu .tagSize20 a:active {
+	font-size: 16px;
+}
+.tagListMenu .tagSize21 a:link,
+.tagListMenu .tagSize21 a:visited,
+.tagListMenu .tagSize21 a:hover,
+.tagListMenu .tagSize21 a:active {
+	font-size: 16px;
+}
+.tagListMenu .tagSize22 a:link,
+.tagListMenu .tagSize22 a:visited,
+.tagListMenu .tagSize22 a:hover,
+.tagListMenu .tagSize22 a:active {
+	font-size: 16px;
+}
+.tagListMenu .tagSize23 a:link,
+.tagListMenu .tagSize23 a:visited,
+.tagListMenu .tagSize23 a:hover,
+.tagListMenu .tagSize23 a:active {
+	font-size: 16px;
+}
+.tagListMenu .tagSize24 a:link,
+.tagListMenu .tagSize24 a:visited,
+.tagListMenu .tagSize24 a:hover,
+.tagListMenu .tagSize24 a:active {
+	font-size: 16px;
+}
+.tagListMenu .tagSize25 a:link,
+.tagListMenu .tagSize25 a:visited,
+.tagListMenu .tagSize25 a:hover,
+.tagListMenu .tagSize25 a:active {
+	font-size: 16px;
+}
+
+
+/* カレンダー */
+/* 現在の月の表示 */
+#month {
+	text-align: center;
+	font-size: 11px;
+}
+/* 月送り囲み */
+#subCalYear {
+	_height: 1em;
+	min-height: 1em;
+	padding: 2%;
+}
+/*  */
+ul#subCalYear li {
+	background: none;
+}
+
+/* 月送り */
+/* 左側(戻る) */
+#sub .oldList {
+	float: left;
+	width: 30%;
+	padding: 0;
+	text-align: left;
+}
+/* 中央(一覧) */
+#sub .allList {
+	float: left;
+	width: 40%;
+	padding: 0;
+	text-align: center;
+}
+/* 右側(進む) */
+#sub .newList {
+	float: right;
+	width: 30%;
+	padding: 0;
+	text-align: right;
+}
+
+table#cTable {
+	width: 99%;
+	text-align: center;
+}
+#cTable tr {
+	font-size: 100%;
+}
+#cTable th,
+#cTable td {
+	text-align: center;
+	font-size: 1em;
+}
+/* 曜日記載列 */
+#cWeek {
+}
+/* 日 */
+#cWeek0 {
+}
+/* 土 */
+#cWeek6 {
+}
+/* 記事のない日付 */
+/* 日曜 */
+.cNone0 {
+}
+/* 平日 */
+.cNone1,
+.cNone2,
+.cNone3,
+.cNone4,
+.cNone5 {
+}
+/* 土曜 */
+.cNone6 {
+}
+
+/* 記事のある日付 */
+/* 日曜 */
+.cLink0 {
+}
+/* 平日 */
+.cLink1,
+.cLink2,
+.cLink3,
+.cLink4,
+.cLink5 {
+}
+/* 土曜 */
+.cLink6 {
+}
+
+/* サブカラムのフッタにあたる部分 */
+#subFooterBox {
+}
+/* RSS1アイコン */
+.rssBtn1 {
+	float: left;
+	width: 70px;
+	margin: 0 10px 10px 0;
+}
+/* RSS2アイコン */
+.rssBtn2 {
+	float: left;
+	width: 70px;
+	margin: 0 10px 10px 0;
+}
+/* a-blog cmsのバナー */
+#ablogcms {
+	margin: 0 10px 10px 0;
+	clear: both;
+}
+
+
+/* ---------------
+フッター
+--------------- */
+/* ページの先頭に戻る */
+#toTop {
+	text-align: right;
+	margin: 10px 20px 0 0;
+	padding: 10px 0 0 0;
+	font-size: 0.84em;
+}
+/* サイトの著作権表示 */
+#copyright {
+	margin-top:10px;
+	padding-top:10px;
+	border-top: solid 2px #F1F1F1;
+	text-align: center;
+	font-size: 1em;
+}

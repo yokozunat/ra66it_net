@@ -1,0 +1,79 @@
+<h1><!-- BEGIN_MODULE Admin_Rule_Name -->
+	<strong>ルール : {name} の</strong><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+	<strong>モジュールID : {label} ( {identifier} ) の</strong><!-- END_MODULE Admin_Module_Name -->コンフィグ管理
+</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_Config -->
+<div class="titleWrapper">
+	<h2>Twitterサーチ ( Twitter_Search )</h2><!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+	<a href="/bid/%{BID}/admin/shortcut_edit/?rid=%{rid}&mid=%{mid}&action=Config&admin=%{ADMIN}&edit=add&step=reapply" class="shortcutBtn">ショートカットに追加</a><!-- END_MODULE Touch_SessionWithAdministration -->
+</div>
+<div class="contents">
+	<form action="" method="post">
+		<table class="adminTable adminTableY">
+			<tr>
+				<th>表示件数</th>
+				<td>
+					<input type="text" name="twitter_search_limit" value="{twitter_search_limit}" size="4" />
+					<input type="hidden" name="config[]" value="twitter_search_limit" />
+					<input type="hidden" name="twitter_search_limit:convert" value="a" />
+					<input type="hidden" name="twitter_search_limit:validator#digits" id="validator-twitter_search_limit-digits" />
+					<label for="validator-twitter_search_limit-digits" class="validator-result-{twitter_search_limit:validator#digits}">数字を入力して下さい。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>非公開のステータス</th>
+				<td>
+					<input type="hidden" name="twitter_search_private" value="off" />
+					<input type="checkbox" name="twitter_search_private" value="on"{twitter_search_private:checked#on} id="input-checkbox-twitter_search_private" />
+					<label for="input-checkbox-twitter_search_private">非公開のステータスを表示しない</label>
+					<input type="hidden" name="config[]" value="twitter_search_private" />
+				</td>
+			</tr>
+			<tr>
+				<th>日本のツイート</th>
+				<td>
+					<input type="hidden" name="twitter_search_locale" value="off" />
+					<input type="checkbox" name="twitter_search_locale" value="on"{twitter_search_locale:checked#on} id="input-checkbox-twitter_search_locale" />
+					<label for="input-checkbox-twitter_search_locale">日本のツイートを中心に検索する</label>
+					<input type="hidden" name="config[]" value="twitter_search_locale" />
+				</td>
+			</tr>
+<!--
+            <tr class="js-map-editable">
+                <th>位置による絞り込み</th>
+                <td>
+                    <input type="text" name="" value="" class="js-editable_map-search_text" disabled="disabled" size="40" />
+                    <input type="button" name="" value="検索" class="js-editable_map-search_button" disabled="disabled" />
+                    <img class="js-map_editable-container" src="http://maps.google.com/staticmap?center=35.185574,136.899066&zoom=10&size=400x300&maptype=roadmap&markers={twitter_search_lat},{twitter_search_lon}&key=%{GOOGLE_API_KEY_ROOT}" width="400" height="300" style="display:block;" />
+                    緯度 <input type="text" name="twitter_search_lat" value="{twitter_search_lat}" size="9" class="js-map_editable-lat" />
+                    経度 <input type="text" name="twitter_search_lon" value="{twitter_search_lon}" size="10" class="js-map_editable-lng" />
+                    半径 <input type="text" name="twitter_search_radius" value="{twitter_search_radius}" size="10" />km
+                    <input type="hidden" name="config[]" value="twitter_search_lat" />
+                    <input type="hidden" name="config[]" value="twitter_search_lon" />
+                    <input type="hidden" name="config[]" value="twitter_search_radius" />
+                </td>
+            </tr>
+-->
+    		<tr>
+    			<th>APIリクエスト キャッシュ有効時間</th>
+    			<td>
+    				<input type="text" name="twitter_search_cache_expire" value="{twitter_search_cache_expire}" size="8" /> 秒
+    				<input type="hidden" name="config[]" value="twitter_search_cache_expire" />
+    				<input type="hidden" name="twitter_search_cache_expire:validator#digits" id="validator-twitter_search_cache_expire-digits" />
+    				<label for="validator-twitter_search_cache_expire-digits" class="validator-result-{twitter_search_cache_expire:validator#digits}">数字を入力して下さい。</label>
+    			</td>
+    		</tr>
+		</table><!-- BEGIN_MODULE Admin_Rule_Name -->
+		<input type="hidden" name="rid" value="{rid}" /><!-- END_MODULE Admin_Rule_Name --><!-- BEGIN_MODULE Admin_Module_Name -->
+		<input type="hidden" name="mid" value="{mid}" /><!-- END_MODULE Admin_Module_Name -->
+		
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="submit" name="ACMS_POST_Config" value="保存" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div><!-- END_MODULE Admin_Config -->

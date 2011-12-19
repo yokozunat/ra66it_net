@@ -1,0 +1,45 @@
+<!-- BEGIN_MODULE Comment_Body -->
+<!-- BEGIN position:veil -->
+<p>全{amount}件中 {from}件〜{to}件を表示</p>
+<!-- END position:veil -->
+<!-- BEGIN relation:vail -->
+<div>
+	<!-- BEGIN comment:loop -->
+	<!-- BEGIN div#front -->
+	<div>
+		<!-- END div#front -->
+		<!-- BEGIN body:veil -->
+		<p><a name="comment-{cmid}">{title}<!-- BEGIN awaiting#header -->承認待ち<!-- END awaiting#header --></a></p>
+		<!-- BEGIN replyLink:veil -->
+		<p><a href="{replyUrl}#comment">返信</a></p>
+		<!-- END replyLink:veil -->
+		<p>{body}<!-- BEGIN awaiting#body -->このコメントは承認待ちです。<!-- END awaiting#body --></p>
+		<p>
+			<!-- BEGIN posterLink#front -->
+			<a href="{url}">
+			<!-- END posterLink#front -->
+			<!-- BEGIN posterName:veil -->
+			{posterName}
+			<!-- END posterName:veil -->
+			<!-- BEGIN posterLink#rear -->
+			</a>
+			<!-- END posterLink#rear -->
+			{year}年{month}月{day}日 {hour}時{min}分{sec}秒 ( {week} )
+			<!--#include file="/admin/comment/action.html"-->
+		</p>
+		<!-- END body:veil -->
+		<!-- BEGIN div#rear -->
+	</div>
+	<!-- END div#rear -->
+	<!-- END comment:loop -->
+	<!-- BEGIN backLink -->
+	<p><a href="{url}">前のコメント</a></p>
+	<!-- END backLink -->
+	&nbsp;
+	<!-- BEGIN forwardLink -->
+	<p><a href="{url}">次のコメント</a></p>
+	<!-- END forwardLink -->
+</div>
+<!-- END relation:vail -->
+<!-- END_MODULE Comment_Body -->
+<!--#include file="/admin/comment/edit.html"-->

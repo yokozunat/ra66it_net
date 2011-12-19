@@ -1,0 +1,35 @@
+<script type="text/javascript" src="http://fast.fonts.com/jsapi/844d0c68-4447-478a-89da-218831cc11ca.js"></script>
+<script type="text/javascript" src="/js/jquery.lazyload.mini.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+    $("img.columnImage, .entrySummaryPhoto img").lazyload({
+	    placeholder : "/themes/ra66it/images/lazyDummy.gif",
+	    effect : "fadeIn"
+	});
+});
+ACMS.Config.postIncludeMethod = 'replace';
+ACMS.Config.postIncludeEffect = 'fade';
+ACMS.Config.postIncludeEffectSpeed = 'fast';
+//]]>
+</script>
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!-- BEGIN_MODULE Touch_Edit --><!--#include file="/js/flickrMeets.js" --><!-- END_MODULE Touch_Edit -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){ 
+	$(".columnImage, .entrySummaryPhoto").each( function() {
+	var posneg = Math.floor( (Math.random() * 2)  );
+	if (posneg == 0) {posneg=-1} else {posneg=1};
+	var angle = /*Math.floor*/( (Math.random() * 1) * posneg );
+	$(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
+	$(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
+	$(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
+	$(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
+	/*alert(angle);*/
+	}); 
+}); 
+//]]>
+</script>

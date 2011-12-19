@@ -1,0 +1,15 @@
+<form action="" method="post" id="js-switch_theme" style="display:none;">
+	<input type="hidden" name="cookie[]" value="acms_http_header_User-Agent" />
+	<input type="hidden" name="cookie[]" value="acms_config_theme" />
+	<input type="hidden" name="acms_http_header_User-Agent" value="Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_1_3 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7E18 Safari/528.16" />
+	<input type="hidden" name="acms_config_theme" value="iphone" />
+	<input type="submit" name="ACMS_POST_Cookie" value="iPhone用テーマに切り替える" />
+</form>
+<script type="text/javascript">
+$(function ( )
+{
+	if ( 'on' == $.cookie('js-switch_theme[0]') ) {
+		$('#js-switch_theme').show();
+	}
+});
+</script>

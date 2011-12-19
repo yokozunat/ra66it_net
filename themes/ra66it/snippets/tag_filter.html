@@ -1,0 +1,13 @@
+<!-- BEGIN_MODULE Tag_Filter -->
+<!-- BEGIN tagBox -->
+<div>
+	<p>選択されているタグ&nbsp;:&nbsp;
+	<!-- BEGIN selected:loop --><a href="{url}">{name}</a><!-- BEGIN glue -->&gt;<!-- END glue --><!-- END selected:loop -->
+	</p>
+	<!-- BEGIN choice:veil -->
+	<p id="nextTagTitle">タグを絞り込む&nbsp;:<!-- BEGIN choice:loop --><a href="{url}">{name}</a><!-- END choice:loop -->
+	<!-- END choice:veil -->
+	</p>
+</div>
+<!-- END tagBox -->
+<!-- END_MODULE Tag_Filter -->

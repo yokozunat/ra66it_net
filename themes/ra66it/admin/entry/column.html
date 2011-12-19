@@ -1,0 +1,253 @@
+<div class="entryFormColumn">
+<!-- BEGIN adminEntryColumn -->
+	<div id="more">
+		<div class="sorthandle">以下のユニットが一覧表示時に「続きを読む」になります</div>
+	</div>
+	<!-- BEGIN column:loop -->
+	<div class="entryFormColumnItem entryFormColumnItem-opened">
+		<!-- .entryFormColumnHead -->
+		<div class="entryFormColumnHead clearfix">
+		  <div class="sorthandle"></div>
+		  <div class="label">{clname}</div>
+			<div class="togglebody"><img src="/images/togglebodyClose.gif" width="14" height="14" /></div>
+			<div class="removethis"><img src="/images/columnDeleteBtn.gif" width="14" height="14" /></div>
+			<input type="hidden" name="id[]" value="{uniqid}" />
+			<input type="hidden" name="type[]" value="{cltype}" />
+			<input type="hidden" name="clid[]" value="{clid}" />
+			<div class="entryFormColumnHeadLayoutBox"><!-- BEGIN sort:veil -->
+				<select name="sort[]">
+				 	<!-- BEGIN sort:loop -->
+					<option value="{value}"{selected}>{label}</option>
+					<!-- END sort:loop -->
+				</select><!-- END sort:veil -->
+				<span class="js-align_label">配置:</span>
+				<select name="align[]">
+					<!-- BEGIN align#liquid -->
+					<option value="auto"{align:selected#auto}>おまかせ</option>
+					<option value="center"{align:selected#center}>全体</option>
+					<!-- END align#liquid -->
+					<!-- BEGIN align#solid -->
+					<option value="auto"{align:selected#auto}>おまかせ</option>
+					<option value="left"{align:selected#left}>左</option>
+					<option value="right"{align:selected#right}>右</option>
+					<option value="center"{align:selected#center}>中央</option>
+					<!-- END align#solid -->
+				</select><!-- BEGIN group:veil -->
+                <span class="js-group_label">グループ:</span>
+                <select name="group[]"><!-- BEGIN group:loop -->
+                    <option value="{value}"{selected}>{label}</option><!-- END group:loop -->
+                </select><!-- END group:veil -->
+				<!-- BEGIN clattr#none -->
+				<input type="hidden" name="attr[]" value="" />
+				<!-- END clattr#none -->
+				<!-- BEGIN clattr:veil -->
+				属性:
+				<select name="attr[]">
+					<!-- BEGIN clattr:loop -->
+					<option value="{value}"{selected}>{label}</option>
+					<!-- END clattr:loop -->
+				</select>
+				<!-- END clattr:veil -->
+			</div>
+		</div>
+		<!-- /.entryFormColumnHead -->
+		<!-- .entryFormColumnBody -->
+		<div class="entryFormColumnBody">
+			<!-- BEGIN text -->
+			<textarea type="text" name="text_text_{id}" rows="10" style="width:98%;">{text}[escape|escvars]</textarea>
+			<br />
+			<select name="text_tag_{id}">
+				<!-- BEGIN textTag:loop -->
+				<option value="{value}" {selected}>{label}</option>
+				<!-- END textTag:loop -->
+			</select>
+			<span class="emoji-edit" style="display:none;"></span>
+			<!-- END text -->
+			<!-- BEGIN image -->
+			<table class="entryFormColumnTable">
+				<tr>
+					<!-- BEGIN FormImages:veil -->
+					<td class="entryFormFileentryFormImages"><!-- BEGIN preview:veil -->
+						<a href="%{HTTP_ARCHIVES_DIR}{popup}" rel="highslide"><img src="%{ARCHIVES_DIR}{tiny}" width="{tinyX}" height="{tinyY}" alt="プレビュー" /></a>
+						<!-- END preview:veil --></td>
+					<!-- END FormImages:veil -->
+					<td class="entryFormFileControl"><input type="file" name="image_file_{id}" size="30" />
+						<br />
+						<select name="image_size_{id}">
+							<!-- BEGIN size:loop -->
+							<option value="{value}"{selected}>{label}</option>
+							<!-- END size:loop -->
+						</select>
+						　
+						<select name="image_edit_{id}">
+							<option value="none"{edit:selected#none}>編集しない</option>
+							<option value="deleteLarge"{edit:selected#deleteLarge}>拡大表示させない</option>
+							<!-- BEGIN rotate -->
+							<option value="rotate270"{selectedEditRotate270}>時計回りで90度回転</option>
+							<option value="rotate90"{selectedEditRotate90}>反時計回りで90度回転</option>
+							<!-- END rotate -->
+							<option value="delete"{edit:selected#delete}>削除</option>
+						</select>
+						<table class="entryFormImageTable">
+							<tr class="detail-column-head" id="detail-column--{id}">
+								<td colspan="2"><a href="#" class="toggle">- 詳細</a>
+									<!-- BEGIN normal:veil -->
+									<strong>Normal</strong>({normalX} x {normalY})
+									<!-- END normal:veil -->
+									<!-- BEGIN large:veil -->
+									<strong>Large</strong>({largeX} x {largeY})
+									<!-- END large:veil --></td>
+							</tr>
+							<tr class="textM detail-column-body detail-column-body--{id}">
+								<th>キャプション</th>
+								<td><input type="text" name="image_caption_{id}" value="{caption}" class="entryFormFileCaption" />
+									<input type="hidden" name="image_old_{id}" value="{old}" /></td>
+							</tr>
+							<tr class="textM detail-column-body detail-column-body--{id}">
+								<th>リンク</th>
+								<td><input type="text" name="image_link_{id}" value="{link}" /></td>
+							</tr>
+							<tr class="textM detail-column-body detail-column-body--{id}">
+								<th>代替テキスト</th>
+								<td><input type="text" name="image_alt_{id}" value="{alt}" /></td>
+							</tr>
+							<tr class="textM detail-column-body detail-column-body--{id}">
+								<th><!-- BEGIN primaryImage:veil -->
+									<label for="input-radio-image_primary_image_{primaryImageId}">メイン画像</label></th>
+								<td><input type="radio" name="primary_image" value="{primaryImageId}"{primaryImageChecked}[raw] id="input-radio-image_primary_image_{primaryImageId}" />
+									<!-- END primaryImage:veil --></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+			<!-- END image -->
+			<!-- BEGIN file -->
+			<table class="entryFormColumnTable">
+				<tr>
+					<td><!-- BEGIN icon#none -->
+						<img src="%{IMAGES_DIR}noimage.gif" width="100" height="100" />
+						<!-- END icon#none -->
+						<!-- BEGIN icon:veil -->
+						<a href="%{HTTP_ARCHIVES_DIR}{path}"><img src="%{IMAGES_DIR}fileicon/{icon}.gif" class="icon" alt="{type}" width="64" height="64" /></a>
+						<p><a href="%{HTTP_ARCHIVES_DIR}{path}">{filename}</a></p>
+						<input type="checkbox" name="file_edit_{deleteId}" value="delete" id="input-checkbox-file_edit_{deleteId}" />
+						<label for="input-checkbox-file_edit_{deleteId}"> 削除</label>
+						<!-- END icon:veil -->
+						<input type="hidden" name="file_old_{id}" value="{old}" /></td>
+					<td><table class="entryFormColumnSettingTable">
+							<tr>
+								<th>ファイル</th>
+								<td><input type="file" name="file_file_{id}" /></td>
+							</tr>
+							<tr>
+								<th>キャプション</th>
+								<td><input type="text" name="file_caption_{id}" value="{caption}" /></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+			<!-- END file -->
+			<!-- BEGIN map -->
+			<table class="formColumnMap">
+				<tr>
+					<td class="formColumnMapTd"><img class="column-map" src="http://maps.google.com/staticmap?center={lat},{lng}&zoom={zoom}&size=400x400&maptype=roadmap&markers={lat},{lng}&key=%{GOOGLE_API_KEY_ROOT}" width="400" height="400" />
+						<p style="text-align:center; margin:2px;">
+							<input type="text" size="34" name="mapSearchTexts[]" value="検索機能は使用できません。" disabled="disabled" />
+							&nbsp;
+							<input type="button" name="mapSearchButtons[]" value="検索" disabled="disabled" />
+						</p></td>
+					<td><dl>
+							<dt>緯度</dt>
+							<dd>
+								<input type="text" name="map_lat_{id}" value="{lat}" size="9" />
+							</dd>
+							<dt>経度</dt>
+							<dd>
+								<input type="text" name="map_lng_{id}" value="{lng}" size="10" />
+							</dd>
+							<dt>ズーム</dt>
+							<dd>
+								<input type="text" name="map_zoom_{id}" value="{zoom}" size="2" />
+							</dd>
+							<dt>吹き出し ( HTML可 )</dt>
+							<dd>
+								<textarea name="map_msg_{id}" rows="9" class="map_msg_id">{msg}</textarea>
+							</dd>
+							<dt>地図の大きさ</dt>
+							<dd>
+								<select name="map_size_{id}">
+									<!-- BEGIN size:loop -->
+									<option value="{value}"{selected}>{label}</option>
+									<!-- END size:loop -->
+								</select>
+							</dd>
+						</dl></td>
+				</tr>
+			</table>
+			<!-- END map -->
+			<!-- BEGIN youtube -->
+			<table class="entryFormColumnSettingTable">
+				<tr>
+					<th>YouTube ID</th>
+					<td><input name="youtube_id_{id}" type="text" value="{youtubeId}" size="15"></td>
+				</tr>
+				<tr>
+					<th>サイズ</th>
+					<td><select name="youtube_size_{id}">
+							<!-- BEGIN size:loop -->
+							<option value="{value}"{selected}>{label}</option>
+							<!-- END size:loop -->
+						</select></td>
+				</tr>
+			</table>
+			<!-- END youtube -->
+			<!-- BEGIN eximage -->
+			<table class="entryFormColumnSettingTable"><!-- BEGIN preview:veil -->
+				<tr>
+					<th>プレビュー</th>
+					<td><a href="{normal}" rel="highslide"><img src="{normal}" width="90" alt="プレビュー" /></a></td>
+				</tr><!-- END preview:veil -->
+				<tr>
+        				<th>Flickr参照&nbsp;</th>
+        			<td><a href="#" class="js-quick_select" rel="47097999@N00">自分のPhotostreamから選択</a></td>
+    			</tr>
+				<tr>
+					<th>標準画像</th>
+					<td><input type="text" name="eximage_normal_{id}" size="80" value="{normal}" /></td>
+				</tr>
+				<tr>
+					<th>拡大画像</th>
+					<td><input type="text" name="eximage_large_{id}" size="80" value="{large}" /></td>
+				</tr>
+				<tr>
+					<th>キャプション</th>
+					<td><input type="text" name="eximage_caption_{id}" size="80" value="{caption}" /></td>
+				</tr>
+				<tr>
+					<th>リンク</th>
+					<td><input type="text" name="eximage_link_{id}" size="80" value="{link}" /></td>
+				</tr>
+				<tr>
+					<th>代替テキスト</th>
+					<td><input type="text" name="eximage_alt_{id}" size="80" value="{alt}" /></td>
+				</tr>
+				<tr>
+					<th>画像の大きさ</th>
+					<td>
+						<select name="eximage_size_{id}"><!-- BEGIN size:loop -->
+							<option value="{value}"{selected}>{label}</option><!-- END size:loop -->
+							<option value=""{size:selected#none}>そのまま</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<!-- END eximage -->
+            <!-- BEGIN break -->
+            <input type="text" name="break_label_{id}" value="{label}" style="width:98%" />
+            <!-- END break -->
+		</div>
+		<!-- /.entryFormColumnBody -->
+	</div>
+	<!-- END column:loop -->
+<!-- END adminEntryColumn -->
+</div>

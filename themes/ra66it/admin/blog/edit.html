@@ -1,0 +1,429 @@
+<h1>ブログ管理</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_Blog_Edit -->
+<!--#include file="/admin/blog/detail.html" -->
+<!-- BEGIN step#reapply -->
+<!-- BEGIN header#insert -->
+<div class="titleWrapper"><!-- BEGIN headline#insert -->
+	<h2>子ブログ作成</h2><!-- END headline#insert --><!-- BEGIN headline#update -->
+	<h2>ブログ編集</h2><!-- END headline#update -->
+</div>
+<div class="contents">
+	<form action="" method="post" enctype="multipart/form-data"><!-- BEGIN blog:validator#operable -->
+		<p class="transaction-notice-error">この操作は許可されていません。</p><!-- END blog:validator#operable --><!-- BEGIN blog:validator#limit -->
+		<p class="transaction-notice-error">
+			現在お使いのライセンスではこの操作は許可されていません。
+			ブログ数がオーバーしている場合は規定数内に収まるようにブログを削除する必要があります。
+		</p><!-- END blog:validator#limit -->
+		<table class="adminTable adminTableY"><!-- BEGIN id:veil -->
+			<tr>
+				<th>ID<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogId" class="tooltipIcon" /></th>
+				<td>{id}</td>
+			</tr><!-- END id:veil -->
+			<tr>
+				<th>ステータス<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogStatus" class="tooltipIcon" /></th>
+				<td>
+					<input type="hidden" name="status" value="close" />
+					<input type="checkbox" name="status" value="open"{status:checked#open} id="input-checkbox-status" />
+					<label for="input-checkbox-status"> 公開</label>
+					<input type="hidden" name="blog[]" value="status" />
+					<input type="hidden" name="status:validator#status" />
+					<label for="validator-status-status" class="validator-result-{status:validator#status}">
+						親ブログが非公開の場合はステータスを公開にできません。
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<th>名前<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogName" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="name" value="{name}" size="40" /> (日本語可)
+					<input type="hidden" name="blog[]" value="name" />
+					<input type="hidden" name="name:validator#required" id="validator-name-required" />
+					<label for="validator-name-required" class="validator-result-{name:validator#required}">名前が入力されていません。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>ドメイン<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogDomain" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="domain" value="{domain}" size="40" /> (英数字)
+					<input type="hidden" name="blog[]" value="domain" />
+					<input type="hidden" name="domain:validator#required" id="validator-domain-required" />
+					<label for="validator-domain-required" class="validator-result-{domain:validator#required}">ドメインが入力されていません。</label>
+					<label for="validator-domain-domain" class="validator-result-{domain:validator#domain}">入力されたドメイン名はご利用できません。</label>
+					<label for="validator-code-identify" class="validator-result-{code:validator#exists}">入力されたドメインとコードネームの組み合わせは既に使用されています。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>コードネーム<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogCode" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="code" value="{code}" size="20" /> (英数字)
+					<input type="hidden" name="blog[]" value="code" />
+					<label for="validator-code-identify" class="validator-result-{code:validator#exists}">入力されたドメインとコードネームの組み合わせは既に使用されています。</label>
+					<label for="validator-code-reserved" class="validator-result-{code:validator#reserved}">システムで予約されているキーワードです。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>インデキシング<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-blogIndexing" class="tooltipIcon" /></th>
+				<td>
+					<input type="hidden" name="indexing" value="off" />
+					<input type="checkbox" name="indexing" value="on"{indexing:checked#on} id="input-checkbox-indexing" />
+					<label for="input-checkbox-indexing">リストに出す</label>
+					<input type="hidden" name="blog[]" value="indexing" />
+				</td>
+			</tr>
+		</table>
+        <table class="adminTable adminTableY" style="margin-top:20px;">
+ 	       <tr>
+                <th>Syntax Highlighter</th>
+                <td>
+                <ul>
+                    <li><label><input type="checkbox" name="brushes[]" value="Bash"{brushes:checked#Bash} />&nbsp;Bash</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Cpp"{brushes:checked#Cpp} />&nbsp;C++</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="CSharp"{brushes:checked#CSharp} />&nbsp;C#</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Css"{brushes:checked#Css} />&nbsp;CSS</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Delphi"{brushes:checked#Delphi} />&nbsp;Delphi</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Diff"{brushes:checked#Diff} />&nbsp;Diff</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Groovy"{brushes:checked#Groovy} />&nbsp;Groovy</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Java"{brushes:checked#Java} />&nbsp;Java</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="JScript"{brushes:checked#JScript} />&nbsp;Javascript</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Php"{brushes:checked#Php} />&nbsp;PHP</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Plain"{brushes:checked#Plain} />&nbsp;Plain</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Python"{brushes:checked#Python} />&nbsp;Python</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Ruby"{brushes:checked#Ruby} />&nbsp;Ruby</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Scala"{brushes:checked#Scala} />&nbsp;Scala</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Sql"{brushes:checked#Sql} />&nbsp;SQL</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Vb"{brushes:checked#Vb} />&nbsp;VB</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="Xml"{brushes:checked#Xml} />&nbsp;XML</label></li>
+                    <li><label><input type="checkbox" name="brushes[]" value="AS3"{brushes:checked#AS3} />&nbsp;AS3</label></li>
+                </ul>
+                    <input type="hidden" name="field[]" value="brushes" />
+                </td>
+            </tr>
+        </table>
+        
+        <table class="adminTable adminTableY" style="margin-top:20px;">
+          <tr>
+              <th>表示1</th>
+              <td>
+                  <label for="input-checkbox-o1">
+                      <input type="hidden" name="o1" value="" />
+                      <input type="checkbox" name="o1" value="true"{o1:checked#true} id="input-checkbox-o1" />
+                      表示する
+                      <input type="hidden" name="field[]" value="o1" /> 
+                  </label>
+              </td>
+          </tr>
+          <tr>
+              <th>リンク1</th>
+              <td>
+                  <input type="text" name="lB1" value="{lB1}" size="50" />
+                  <input type="hidden" name="field[]" value="lB1" />
+              </td>
+          </tr>
+          <tr>
+              <th>メッセージ1</th>
+              <td>
+                  <textarea name="m1" cols="60" rows="5">{m1}</textarea>
+                  <input type="hidden" name="field[]" value="m1" />
+              </td>
+          </tr>
+          <tr>
+              <th>バナー1<br />
+      （横幅：640px　高さ：240px以上）</th>
+              <td><!-- BEGIN b1@path:veil -->
+                  <input type="hidden" name="b1@old" value="{b1@path}" />
+                  <input type="checkbox" name="b1@edit" value="delete" id="input-checkbox-b1@edit" />
+                  <label for="input-checkbox-b1@edit"> 削除</label><br />
+                  <div style="width:{b1@x}; height:{b1@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{b1@path}" /></div><br /><!-- END b1@path:veil -->
+                  <input type="file" name="b1" size="20" />
+                  <input type="hidden" name="field[]" value="b1" />
+                  <input type="hidden" name="b1:extension" value="image" />
+                  <!--<input type="hidden" name="b1@size" value="320" />-->
+              </td>
+          </tr>
+          <tr>
+              <th>サムネイル1<br />
+      （横幅：320px　高さ：240px）</th>
+              <td><!-- BEGIN t1@path:veil -->
+                  <input type="hidden" name="t1@old" value="{t1@path}" />
+                  <input type="checkbox" name="t1@edit" value="delete" id="input-checkbox-t1@edit" />
+                  <label for="input-checkbox-t1@edit"> 削除</label><br />
+                  <div style="width:{comThumb@x}px; height:{comThumb@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{t1@path}" /></div><br /><!-- END t1@path:veil -->
+                  <input type="file" name="t1" size="20" />
+                  <input type="hidden" name="field[]" value="t1" />
+                  <input type="hidden" name="t1:extension" value="image" />
+                  <!--<input type="hidden" name="t1@size" value="320" />-->
+              </td>
+          </tr>
+      </table>
+      
+      <table class="adminTable adminTableY" style="margin-top:20px;">
+          <tr>
+              <th>表示2</th>
+              <td>
+                  <label for="input-checkbox-o2">
+                      <input type="hidden" name="o2" value="" />
+                      <input type="checkbox" name="o2" value="true"{o2:checked#true} id="input-checkbox-o2" />
+                      表示する
+                      <input type="hidden" name="field[]" value="o2" /> 
+                  </label>
+              </td>
+          </tr>
+          <tr>
+              <th>リンク2</th>
+              <td>
+                  <input type="text" name="lB2" value="{lB2}" size="50" />
+                  <input type="hidden" name="field[]" value="lB2" />
+              </td>
+          </tr>
+          <tr>
+              <th>メッセージ2</th>
+              <td>
+                  <textarea name="m2" cols="60" rows="5">{m2}</textarea>
+                  <input type="hidden" name="field[]" value="m2" />
+              </td>
+          </tr>
+          <tr>
+              <th>バナー2<br />
+      （横幅：640px　高さ：240px以上）</th>
+              <td><!-- BEGIN b2@path:veil -->
+                  <input type="hidden" name="b2@old" value="{b2@path}" />
+                  <input type="checkbox" name="b2@edit" value="delete" id="input-checkbox-b2@edit" />
+                  <label for="input-checkbox-b2@edit"> 削除</label><br />
+                  <div style="width:{b2@x}; height:{b2@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{b2@path}" /></div><br /><!-- END b2@path:veil -->
+                  <input type="file" name="b2" size="20" />
+                  <input type="hidden" name="field[]" value="b2" />
+                  <input type="hidden" name="b2:extension" value="image" />
+                  <!--<input type="hidden" name="b2@size" value="320" />-->
+              </td>
+          </tr>
+          <tr>
+              <th>サムネイル2<br />
+      （横幅：320px　高さ：240px）</th>
+              <td><!-- BEGIN t2@path:veil -->
+                  <input type="hidden" name="t2@old" value="{t2@path}" />
+                  <input type="checkbox" name="t2@edit" value="delete" id="input-checkbox-t2@edit" />
+                  <label for="input-checkbox-t2@edit"> 削除</label><br />
+                  <div style="width:{comThumb@x}px; height:{comThumb@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{t2@path}" /></div><br /><!-- END t2@path:veil -->
+                  <input type="file" name="t2" size="20" />
+                  <input type="hidden" name="field[]" value="t2" />
+                  <input type="hidden" name="t2:extension" value="image" />
+                  <!--<input type="hidden" name="t2@size" value="320" />-->
+              </td>
+          </tr>
+      </table>
+      
+      <table class="adminTable adminTableY" style="margin-top:20px;">
+          <tr>
+              <th>表示3</th>
+              <td>
+                  <label for="input-checkbox-o3">
+                      <input type="hidden" name="o3" value="" />
+                      <input type="checkbox" name="o3" value="true"{o3:checked#true} id="input-checkbox-o3" />
+                      表示する
+                      <input type="hidden" name="field[]" value="o3" /> 
+                  </label>
+              </td>
+          </tr>
+          <tr>
+              <th>リンク3</th>
+              <td>
+                  <input type="text" name="lB3" value="{lB3}" size="50" />
+                  <input type="hidden" name="field[]" value="lB3" />
+              </td>
+          </tr>
+          <tr>
+              <th>メッセージ3</th>
+              <td>
+                  <textarea name="m3" cols="60" rows="5">{m3}</textarea>
+                  <input type="hidden" name="field[]" value="m3" />
+              </td>
+          </tr>
+          <tr>
+              <th>バナー3<br />
+      （横幅：640px　高さ：240px以上）</th>
+              <td><!-- BEGIN b3@path:veil -->
+                  <input type="hidden" name="b3@old" value="{b3@path}" />
+                  <input type="checkbox" name="b3@edit" value="delete" id="input-checkbox-b3@edit" />
+                  <label for="input-checkbox-b3@edit"> 削除</label><br />
+                  <div style="width:{b3@x}; height:{b3@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{b3@path}" /></div><br /><!-- END b3@path:veil -->
+                  <input type="file" name="b3" size="20" />
+                  <input type="hidden" name="field[]" value="b3" />
+                  <input type="hidden" name="b3:extension" value="image" />
+                  <!--<input type="hidden" name="b3@size" value="320" />-->
+              </td>
+          </tr>
+          <tr>
+              <th>サムネイル3<br />
+      （横幅：320px　高さ：240px）</th>
+              <td><!-- BEGIN t3@path:veil -->
+                  <input type="hidden" name="t3@old" value="{t3@path}" />
+                  <input type="checkbox" name="t3@edit" value="delete" id="input-checkbox-t3@edit" />
+                  <label for="input-checkbox-t3@edit"> 削除</label><br />
+                  <div style="width:{comThumb@x}px; height:{comThumb@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{t3@path}" /></div><br /><!-- END t3@path:veil -->
+                  <input type="file" name="t3" size="20" />
+                  <input type="hidden" name="field[]" value="t3" />
+                  <input type="hidden" name="t3:extension" value="image" />
+                  <!--<input type="hidden" name="t3@size" value="320" />-->
+              </td>
+          </tr>
+      </table>
+      
+      <table class="adminTable adminTableY" style="margin-top:20px;">
+          <tr>
+              <th>表示4</th>
+              <td>
+                  <label for="input-checkbox-o4">
+                      <input type="hidden" name="o4" value="" />
+                      <input type="checkbox" name="o4" value="true"{o4:checked#true} id="input-checkbox-o4" />
+                      表示する
+                      <input type="hidden" name="field[]" value="o4" /> 
+                  </label>
+              </td>
+          </tr>
+          <tr>
+              <th>リンク4</th>
+              <td>
+                  <input type="text" name="lB4" value="{lB4}" size="50" />
+                  <input type="hidden" name="field[]" value="lB4" />
+              </td>
+          </tr>
+          <tr>
+              <th>メッセージ4</th>
+              <td>
+                  <textarea name="m4" cols="60" rows="5">{m4}</textarea>
+                  <input type="hidden" name="field[]" value="m4" />
+              </td>
+          </tr>
+          <tr>
+              <th>バナー4<br />
+      （横幅：640px　高さ：240px以上）</th>
+              <td><!-- BEGIN b4@path:veil -->
+                  <input type="hidden" name="b4@old" value="{b4@path}" />
+                  <input type="checkbox" name="b4@edit" value="delete" id="input-checkbox-b4@edit" />
+                  <label for="input-checkbox-b4@edit"> 削除</label><br />
+                  <div style="width:{b4@x}; height:{b4@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{b4@path}" /></div><br /><!-- END b4@path:veil -->
+                  <input type="file" name="b4" size="20" />
+                  <input type="hidden" name="field[]" value="b4" />
+                  <input type="hidden" name="b4:extension" value="image" />
+                  <!--<input type="hidden" name="b4@size" value="320" />-->
+              </td>
+          </tr>
+          <tr>
+              <th>サムネイル4<br />
+      （横幅：320px　高さ：240px）</th>
+              <td><!-- BEGIN t4@path:veil -->
+                  <input type="hidden" name="t4@old" value="{t4@path}" />
+                  <input type="checkbox" name="t4@edit" value="delete" id="input-checkbox-t4@edit" />
+                  <label for="input-checkbox-t4@edit"> 削除</label><br />
+                  <div style="width:{comThumb@x}px; height:{comThumb@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{t4@path}" /></div><br /><!-- END t4@path:veil -->
+                  <input type="file" name="t4" size="20" />
+                  <input type="hidden" name="field[]" value="t4" />
+                  <input type="hidden" name="t4:extension" value="image" />
+                  <!--<input type="hidden" name="t4@size" value="320" />-->
+              </td>
+          </tr>
+      </table>
+      
+      <table class="adminTable adminTableY" style="margin-top:20px;">
+          <tr>
+              <th>表示5</th>
+              <td>
+                  <label for="input-checkbox-o5">
+                      <input type="hidden" name="o5" value="" />
+                      <input type="checkbox" name="o5" value="true"{o5:checked#true} id="input-checkbox-o5" />
+                      表示する
+                      <input type="hidden" name="field[]" value="o5" /> 
+                  </label>
+              </td>
+          </tr>
+          <tr>
+              <th>リンク5</th>
+              <td>
+                  <input type="text" name="lB5" value="{lB5}" size="50" />
+                  <input type="hidden" name="field[]" value="lB5" />
+              </td>
+          </tr>
+          <tr>
+              <th>メッセージ5</th>
+              <td>
+                  <textarea name="m5" cols="60" rows="5">{m5}</textarea>
+                  <input type="hidden" name="field[]" value="m5" />
+              </td>
+          </tr>
+          <tr>
+              <th>バナー5<br />
+      （横幅：640px　高さ：240px以上）</th>
+              <td><!-- BEGIN b5@path:veil -->
+                  <input type="hidden" name="b5@old" value="{b5@path}" />
+                  <input type="checkbox" name="b5@edit" value="delete" id="input-checkbox-b5@edit" />
+                  <label for="input-checkbox-b5@edit"> 削除</label><br />
+                  <div style="width:{b5@x}; height:{b5@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{b5@path}" /></div><br /><!-- END b5@path:veil -->
+                  <input type="file" name="b5" size="20" />
+                  <input type="hidden" name="field[]" value="b5" />
+                  <input type="hidden" name="b5:extension" value="image" />
+                  <!--<input type="hidden" name="b5@size" value="320" />-->
+              </td>
+          </tr>
+          <tr>
+              <th>サムネイル5<br />
+      （横幅：320px　高さ：240px）</th>
+              <td><!-- BEGIN t5@path:veil -->
+                  <input type="hidden" name="t5@old" value="{t5@path}" />
+                  <input type="checkbox" name="t5@edit" value="delete" id="input-checkbox-t5@edit" />
+                  <label for="input-checkbox-t5@edit"> 削除</label><br />
+                  <div style="width:{comThumb@x}px; height:{comThumb@y}px;overflow:hidden;"><img src="%{ARCHIVES_DIR}{t5@path}" /></div><br /><!-- END t5@path:veil -->
+                  <input type="file" name="t5" size="20" />
+                  <input type="hidden" name="field[]" value="t5" />
+                  <input type="hidden" name="t5:extension" value="image" />
+                  <!--<input type="hidden" name="t5@size" value="320" />-->
+              </td>
+          </tr>
+      </table>
+
+        
+        
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="hidden" name="step" value="" /><!-- BEGIN submit#insert -->
+					<input type="submit" name="ACMS_POST_Blog_Insert" value="作成" /><!-- END submit#insert --><!-- BEGIN submit#update -->
+					<input type="submit" name="ACMS_POST_Blog_Update" value="保存" /><!-- END submit#update -->
+					<input type="hidden" name="%{SNAME}" value="%{SID}" />
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<!-- BEGIN footer#insert -->
+	<form action="" method="post">
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="hidden" name="bid" value="%{BID}" />
+					<input type="hidden" name="admin" value="blog_index" />
+					<input type="submit" value="一覧" name="ACMS_POST_2GET" />
+					<input type="hidden" name="%{SNAME}" value="%{SID}" />
+				</td>
+			</tr>
+		</table>
+	</form><!-- END footer#insert -->
+
+	<!-- BEGIN footer#update -->
+	<form action="" method="post">
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="hidden" name="bid" value="%{BID}" />
+					<input type="hidden" name="admin" value="blog_index" />
+					<input type="submit" value="戻る" name="ACMS_POST_2GET" />
+					<input type="hidden" name="%{SNAME}" value="%{SID}" />
+				</td>
+			</tr>
+		</table>
+	</form><!-- END footer#update -->
+
+</div>
+<!-- END step#reapply -->
+<!-- END_MODULE Admin_Blog_Edit -->
+<!--#include file="/admin/tooltip/blog.html"-->

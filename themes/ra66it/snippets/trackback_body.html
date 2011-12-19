@@ -1,0 +1,18 @@
+<!-- BEGIN_MODULE Trackback_Body -->
+<div>
+	<p>全{amount}件中 {from}件〜{to}件を表示</p><!-- BEGIN trackback:loop -->
+	<div><!-- ステータスによって、枠の色を変えたりするのに使えますー＞{status} -->
+		<p><a href="{url}" name="trackback-{tbid}">{title}<!-- BEGIN title#awaiting -->承認待ち<!-- END title#awaiting --></a></p>
+		<p>{excerpt}[nl2br]<!-- BEGIN excerpt#awaiting -->このトラックバックは承認待ちです。<!-- END excerpt#awaiting --></p>
+		<p>{blogName} {date#Y}年{date#m}月{date#d}日 {date#H}時{date#i}分{date#s}秒</p>
+		<!--#include file="/admin/trackback/action.html"-->
+	</div>
+	<!-- END trackback:loop -->
+	<!-- BEGIN backLink -->
+	<p><a href="{url}">&laquo; 前のトラックバック</a></p>
+	<!-- END backLink -->
+	<!-- BEGIN forwardLink -->
+	<p>&nbsp;<a href="{url}">次のトラックバック &raquo;</a></p>
+	<!-- END forwardLink -->
+</div>
+<!-- END_MODULE Trackback_Body -->

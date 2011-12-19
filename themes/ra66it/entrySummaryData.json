@@ -1,0 +1,3 @@
+[<!-- BEGIN_MODULE Entry_Summary id="entrySummaryData"--><!-- BEGIN unit:loop --><!-- BEGIN entry:loop -->
+{
+"url":"{url}","title":"{title}","summary":"{summary}[urlencode|trim(51, '...')]","eid":"{eid}","x":"{x}","y":"{y}","path":"%{ROOT_DIR}{path}","imgX":"{imgX}","imgY":"{imgY}","tinyPath":"%{ROOT_DIR}{tinyPath}","tinyX":"{tinyX}","tinyY":"{tinyY}","cid":"{cid}","thumnail":"{thumnail}"}<!-- END entry:loop --><!-- END unit:loop --><!-- END_MODULE Entry_Summary -->]

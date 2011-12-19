@@ -1,0 +1,424 @@
+<h1>ユーザー管理</h1>
+<!--#include file="/admin/topicpath.html"-->
+<!-- BEGIN_MODULE Admin_User_Edit -->
+<!-- BEGIN step -->
+
+<div class="titleWrapper">
+	<h2>ユーザー詳細</h2>
+</div>
+<div class="contents"><!-- BEGIN msg#insert -->
+	<p>ユーザーを作成しました</p><!-- END msg#insert --><!-- BEGIN msg#update -->
+	<p>ユーザーを保存しました</p><!-- END msg#update --><!-- BEGIN msg#delete -->
+	<p>ユーザーを削除しました</p><!-- END msg#delete --><!-- BEGIN user:validator#operable -->
+	<p class="transaction-notice-error">この操作は許可されていません。</p><!-- END user:validator#operable --><!-- BEGIN user:validator#operable -->
+	<p class="warning">
+		ユーザーを削除できませんでした。
+		自分自身は削除出来ません。
+	</p>
+	<!-- END user:validator#operable --><!-- BEGIN user:validator#entryExists -->
+	<p class="warning">
+		ユーザーを削除できませんでした。<br />
+		エントリーが登録されているユーザーは削除できません。<br />
+	</p><!-- END user:validator#entryExists --><!-- BEGIN user:validator#moblog -->
+	<p class="warning">
+		ユーザーを削除できませんでした。<br />
+		モブログで使用されているユーザーは削除できません。<br />
+	</p><!-- END user:validator#moblog -->
+	<table class="adminTable adminTableY"><!-- BEGIN status:veil -->
+		<tr>
+			<th>ステータス<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userId" class="tooltipIcon" /></th>
+			<td><!-- BEGIN status:touch#open -->
+				有効<!-- END status:touch#open --><!-- BEGIN status:touch#close -->
+				無効<!-- END status:touch#close -->
+			</td>
+		</tr><!-- END status:veil -->
+		<tr>
+			<th>名前<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userName" class="tooltipIcon" /></th>
+			<td>{name}</td>
+		</tr>
+		<tr>
+			<th>ユーザーID<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userCode" class="tooltipIcon" /></th>
+			<td>{code}</td>
+		</tr>
+		<tr>
+			<th>メールアドレス<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userMail" class="tooltipIcon" /></th>
+			<td>{mail}</td>
+		</tr><!--
+		<tr>
+			<th>メールアドレス (携帯)<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userMobile" class="tooltipIcon" /></th>
+			<td>{mail_mobile}</td>
+		</tr>
+		<tr>
+			<th>URL<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userUrl" class="tooltipIcon" /></th>
+			<td>{url}</td>
+		</tr>--><!-- BEGIN auth:veil -->
+		<tr>
+			<th>権限<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userAdmin" class="tooltipIcon" /></th>
+			<td><!-- BEGIN auth:touch#administrator -->
+				管理者<!-- END auth:touch#administrator -->
+			</td>
+		</tr><!-- END auth:veil --><!-- BEGIN indexing:veil -->
+		<tr>
+			<th>インデキシング<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userIndexing" class="tooltipIcon" /></th>
+			<td><!-- BEGIN indexing:touch#on -->
+				リストに出す<!-- END indexing:touch#on --><!-- BEGIN indexing:touch#off -->
+				リストに出さない<!-- END indexing:touch#off -->
+			</td>
+		</tr><!-- END indexing:veil -->
+        <!-- BEGIN_MODULE Twitter_AdminOAuth -->
+        <!-- BEGIN notAuth -->
+		<tr>
+			<th>Twitter OAuth 認証</th>
+			<td>認証されていません</td>
+		</tr>
+		<!-- END notAuth -->
+		<!-- BEGIN Auth -->
+		<tr>
+			<th>Twitter OAuth 認証</th>
+			<td>
+                <strong>{user_name}</strong> ( {screen_name} / id: {id} ) で認証済み
+			</td>
+		</tr>
+		<!-- END Auth -->
+        <!-- END_MODULE Twitter_AdminOAuth -->
+        <!-- BEGIN_MODULE Flickr_AdminAuth -->
+        <!-- BEGIN notAuth -->
+		<tr>
+			<th>Flickr Auth 認証</th>
+			<td>認証されていません</td>
+		</tr>
+		<!-- END notAuth -->
+		<!-- BEGIN Auth -->
+		<tr>
+			<th>Flickr Auth 認証</th>
+			<td>
+                <strong>{fullname}</strong> ( {username} / nsid: {nsid} ) で認証済み
+			</td>
+		</tr>
+		<!-- END Auth -->
+        <!-- END_MODULE Flickr_AdminAuth -->
+	</table>
+
+	<h3 class="crosshead3table">プロフィール</h3>
+	<table class="adminTable adminTableY">
+		<tr>
+			<th>所属<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userPosition" class="tooltipIcon" /></th>
+			<td>{position}</td>
+		</tr>
+		<tr>
+			<th>肩書き<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userTitle" class="tooltipIcon" /></th>
+			<td>{title}</td>
+		</tr>
+		<tr>
+			<th>自己紹介文<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userProfile" class="tooltipIcon" /></th>
+			<td>{profile}</td>
+		</tr>
+		<tr>
+			<th>画像<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userImage" class="tooltipIcon" /></th>
+			<td><!-- BEGIN image@path:veil -->
+				<img src="%{ARCHIVES_DIR}{image@path}" width="{image@x}" height="{image@y}" /><br /><!-- END image@path:veil -->
+			</td>
+		</tr>
+		<tr>
+			<th>代替テキスト<img src="/themes/system/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userAlt" class="tooltipIcon" /></th>
+			<td>{image@alt}</td>
+		</tr>
+	</table>
+	<table class="adminTable">
+		<tr>
+			<td class="systemBtn">
+				<!-- BEGIN takeover -->
+				<form action="?edit=update&step=reapply" method="post" class="adminBtn">
+				<input type="submit" name="ACMS_POST_Form_Chain" value="変更" />
+				<input type="hidden" name="takeover" value="{takeover}" />
+				</form>
+
+				<!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+				<form action="" method="post" class="adminBtn">
+				<input type="hidden" name="edit" value="delete" />
+				<input type="submit" name="ACMS_POST_User_Delete" value="削除" onclick="return confirm('ユーザーを削除します。\nこの操作は取り消せません、よろしいですか？');" />
+				<input type="hidden" name="takeover" value="{takeover}" />
+				</form><!-- END_MODULE Touch_SessionWithAdministration --><!-- END takeover -->
+
+				<!-- BEGIN_MODULE Touch_SessionWithAdministration -->
+				<form action="" method="post" class="adminBtn">
+				<input type="submit" name="ACMS_POST_2GET" value="一覧" />
+				<input type="hidden" name="bid" value="%{BID}" />
+				<input type="hidden" name="admin" value="user_index" />
+				</form><!-- END_MODULE Touch_SessionWithAdministration -->
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- END step -->
+<!-- BEGIN step#reapply -->
+
+<div class="titleWrapper"><!-- BEGIN headline#insert -->
+	<h2>ユーザーの作成</h2><!-- END headline#insert --><!-- BEGIN headline#update -->
+	<h2>ユーザーの変更</h2><!-- END headline#update -->
+</div>
+
+<div class="contents">
+	<form method="post" action="" enctype="multipart/form-data"><!-- BEGIN user:validator#operable -->
+		<p class="transaction-notice-error">この操作は許可されていません。</p><!-- END user:validator#operable --><!-- BEGIN user:validator#limit -->
+		<p class="transaction-notice-error">
+			現在お使いのライセンスではこの操作は許可されていません。
+			ユーザー数がオーバーしている場合は規定数内に収まるようにユーザーを削除する必要があります。
+		</p><!-- END user:validator#limit -->
+		<table class="adminTable adminTableY"><!-- BEGIN status:checked#close -->
+			<tr>
+				<th>ステータス<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userStatus" class="tooltipIcon" /></th>
+				<td>
+					<input type="hidden" name="status" value="close" />
+					<input type="checkbox" name="status" value="open"{status:checked#open} id="input-checkbox-status" />
+					<label for="input-checkbox-status"> 有効</label>
+					<input type="hidden" name="user[]" value="status" />
+				</td>
+			</tr><!-- END status:checked#close --><!-- BEGIN id:touch -->
+			<tr>
+				<th>ID<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userId" class="tooltipIcon" /></th>
+				<td>{uid}</td>
+			</tr><!-- END id:touch -->
+			<tr>
+				<th>名前<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userName" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="name" value="{name}" size="20" id="input-text-name" /> (日本語可)
+					<input type="hidden" name="user[]" value="name" />
+					<input type="hidden" name="name:validator#required" id="validator-name-required" />
+					<label for="validator-name-required" class="validator-result-{name:validator#required}">名前が入力されていません。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>ユーザーID<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userCode" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="code" value="{code}" size="20" id="input-text-code" /> (英数字)
+					<input type="hidden" name="user[]" value="code" />
+					<input type="hidden" name="code:validator#regex" value="%{REGEX_VALID_ID}" id="validator-code-regex" />
+					<input type="hidden" name="code:validator#doubleCode" value="%{USER_ID}" id="validator-code-doubleCode" />
+					<label for="validator-code-regex" class="validator-result-{code:validator#regex}">無効なユーザーIDです。</label>
+					<label for="validator-code-doubleCode" class="validator-result-{code:validator#doubleCode}">既に使用されているユーザーIDです。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>メールアドレス<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userMail" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="mail" value="{mail}" size="30" id="input-text-mail" />
+					<input type="hidden" name="user[]" value="mail" />
+					<input type="hidden" name="mail:validator#required" id="validator-mail-required" />
+					<input type="hidden" name="mail:validator#email" id="validator-mail-email" />
+					<input type="hidden" name="mail:validator#doubleMail" value="%{USER_ID}" id="validator-mail-doubleMail" />
+					<label for="validator-mail-required" class="validator-result-{mail:validator#required}">メールアドレスが入力されていません。</label>
+					<label for="validator-mail-email" class="validator-result-{mail:validator#email}">無効なメールアドレスです。</label>
+					<label for="validator-mail-doubleMail" class="validator-result-{mail:validator#doubleMail}">既に使用されているメールアドレスです。</label>
+				</td>
+			</tr><!--
+			<tr>
+				<th>メールアドレス (携帯)<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userMobile" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="mail_mobile" value="{mail_mobile}" size="30" />
+					<input type="hidden" name="user[]" value="mail_mobile" />
+					<input type="hidden" name="mail_mobile:validator#email" id="validator-mail_mobile-email" />
+					<label for="validator-mail_mobile-email" class="validator-result-{mail_mobile:validator#email}">無効なメールアドレスです。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>URL<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userUrl" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="url" value="{url}" size="35" />
+					<input type="hidden" name="user[]" value="url" />
+					<input type="hidden" name="url:validator#url" id="validator-url-url" />
+					<label for="validator-url-url" class="validator-result-{url:validator#url}">無効なURLです。</label>
+				</td>
+			</tr>-->
+			<tr><!-- END oldPass:veil --><!--
+				<th>古いパスワード<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" class="tooltipIcon" /></th>
+				<td>
+					<input type="password" name="oldPass" value="{oldPass}" size="15" id="input-password-oldPass" />
+					<input type="hidden" name="user[]" value="oldPass" />
+					<input type="hidden" name="oldPass:validator#oldPass" value="pass" />
+					<label for="input-password-oldPass" class="validator-result-{oldPass:validator#oldPass}">パスワードが間違っています。</label>
+				</td>
+			</tr>--><!-- BEGIN oldPass:veil -->
+			<tr>
+				<th>新しいパスワード<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userPass" class="tooltipIcon" /></th>
+				<td>
+					<input type="password" name="pass" value="{pass}" size="15" id="input-text-pass" />
+					<input type="hidden" name="user[]" value="pass" /><!-- BEGIN pass:validator#required -->
+					<input type="hidden" name="pass:validator#required" id="validator-pass-required" /><!-- END pass:validator#required -->
+					<input type="hidden" name="pass:validator#regex" value="%{REGEX_VALID_PASSWD}" id="validator-pass-regex" />
+					<label for="validator-pass-required" class="validator-result-{pass:validator#required}">パスワードが入力されていません。</label>
+					<label for="validator-pass-regex" class="validator-result-{pass:validator#regex}">無効なパスワードです。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>新しいパスワード ( 確認 )<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userPass2" class="tooltipIcon" /></th>
+				<td>
+					<input type="password" name="retype_pass" value="{retype_pass}" size="15" id="input-text-retype-pass" />
+					<input type="hidden" name="user[]" value="retype_pass" />
+					<input type="hidden" name="retype_pass:validator#equalTo" value="pass" id="validator-retype_pass-equalTo" />
+					<label for="validator-retype_pass-equalTo" class="validator-result-{retype_pass:validator#equalTo}">パスワードの確認ができません。</label>
+				</td>
+			</tr>
+			<tr>
+				<th>権限<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userAdmin" class="tooltipIcon" /></th>
+				<td>
+					<select name="auth">
+						<option value="administrator"{auth:selected#administrator}>管理者</option>
+					</select>
+					<input type="hidden" name="user[]" value="auth" />
+				</td>
+			</tr><!-- BEGIN indexing:touch#off -->
+			<tr>
+				<th>インデキシング<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userIndexing" class="tooltipIcon" /></th>
+				<td>
+					<input type="hidden" name="indexing" value="off" />
+					<input type="checkbox" name="indexing" value="on"{indexing:checked#on} id="input-checkbox-indexing" />
+					<input type="hidden" name="user[]" value="indexing" />
+					<label for="input-checkbox-indexing">リストに出す</label>
+				</td>
+			</tr><!-- END indexing:touch#off -->
+            <!-- BEGIN_MODULE Twitter_AdminOAuth -->
+            <!-- BEGIN notAuth -->
+			<tr>
+				<th>Twitter OAuth 認証</th>
+				<td>
+				    <input type="submit" name="ACMS_POST_Twitter_OAuth_Connect" value="OAuth認証を行う" class="overlook" />
+				    <input type="hidden" name="oauth_url" value="{oauth_url}" />
+				    <input type="hidden" name="twitter[]" value="oauth_url" />
+                    <input type="hidden" name="oauth_token" value="{oauth_token}" />
+                    <input type="hidden" name="twitter[]" value="oauth_token" />
+                    <input type="hidden" name="oauth_token_secret" value="{oauth_token_secret}" />
+                    <input type="hidden" name="twitter[]" value="oauth_token_secret" />
+				</td>
+			</tr>
+			<!-- END notAuth -->
+			<!-- BEGIN Auth -->
+			<tr>
+				<th>Twitter OAuth 認証</th>
+				<td>
+                    <strong>{user_name}</strong> ( {screen_name} / id: {id} ) で認証済み&nbsp;<input type="submit" name="ACMS_POST_Twitter_OAuth_Revoke" value="認証情報を破棄" class="overlook" />
+				</td>
+			</tr>
+			<!-- END Auth -->
+			<!-- BEGIN failed -->
+			<tr>
+				<th>Twitter OAuth 認証</th>
+				<td>認証確認の接続に失敗しました&nbsp;<input type="submit" name="ACMS_POST_Twitter_OAuth_Revoke" value="認証情報を破棄" class="overlook" /></td>
+			</tr>
+			<!-- END failed -->
+            <!-- END_MODULE Twitter_AdminOAuth -->
+            <!-- BEGIN_MODULE Flickr_AdminAuth -->
+            <!-- BEGIN notAuth -->
+			<tr>
+				<th>Flickr Auth 認証</th>
+				<td>
+				    <input type="submit" name="ACMS_POST_Flickr_Auth_Connect" value="Auth認証を行う" class="overlook" />
+				    <input type="hidden" name="auth_url" value="{auth_url}" />
+				    <input type="hidden" name="flickr[]" value="auth_url" />
+				</td>
+			</tr>
+			<!-- END notAuth -->
+			<!-- BEGIN Auth -->
+			<tr>
+				<th>Flickr Auth 認証</th>
+    			<td>
+                    <strong>{fullname}</strong> ( {username} / nsid: {nsid} ) で認証済み&nbsp;<input type="submit" name="ACMS_POST_Flickr_Auth_Revoke" value="認証情報を破棄" class="overlook" />
+    			</td>
+			</tr>
+			<!-- END Auth -->
+			<!-- BEGIN failed -->
+			<tr>
+				<th>Flickr Auth 認証</th>
+				<td>認証確認の接続に失敗しました&nbsp;<input type="submit" name="ACMS_POST_Flickr_Auth_Revoke" value="認証情報を破棄" class="overlook" /></td>
+			</tr>
+			<!-- END failed -->
+            <!-- END_MODULE Flickr_AdminAuth -->
+		</table>
+
+		<h3 class="crosshead3table">プロフィール</h3>
+		<table class="adminTable adminTableY">
+			<tr>
+				<th>所属<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userPosition" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="position" value="{position}" size="30" />
+					<input type="hidden" name="field[]" value="position" />
+				</td>
+			</tr>
+			<tr>
+				<th>肩書き<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userTitle" class="tooltipIcon" /></th>
+				<td>
+					<input type="text" name="title" value="{title}" size="30" />
+					<input type="hidden" name="field[]" value="title" />
+				</td>
+			</tr>
+			<tr>
+				<th>自己紹介文<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userProfile" class="tooltipIcon" /></th>
+				<td>
+					<textarea name="profile" rows="5" cols="50">{profile}</textarea>
+					<input type="hidden" name="field[]" value="profile" />
+				</td>
+			</tr>
+			<tr>
+				<th>画像<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userImage" class="tooltipIcon" /></th>
+				<td><!-- BEGIN image@path:veil -->
+					<input type="hidden" name="image@old" value="{image@path}" />
+					<input type="checkbox" name="image@edit" value="delete" id="input-checkbox-image@edit" />
+					<label for="input-checkbox-image@edit"> 削除</label><br />
+					<img src="%{ARCHIVES_DIR}{image@path}" width="{image@x}" height="{image@y}" /><br /><!-- END image@path:veil -->
+					<input type="file" name="image" size="20" />
+					<input type="hidden" name="field[]" value="image" />
+					<input type="hidden" name="image:extension" value="image" />
+					<input type="hidden" name="image@size" value="160" />
+				</td>
+			</tr>
+			<tr>
+				<th>代替テキスト<img src="/images/tooltip.gif" alt="ヘルプ" width="12" height="12" id="tooltip-userAlt" class="tooltipIcon" /></th>
+				<td><input type="text" name="image@alt" value="{image@alt}" size="30" /></td>
+			</tr>
+		</table>
+
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<!-- BEGIN submit#insert -->
+					<input type="submit" name="ACMS_POST_User_Insert" value="作成" /><!-- END submit#insert --><!-- BEGIN submit#update -->
+					<input type="submit" name="ACMS_POST_User_Update" value="保存" /><!-- END submit#update -->
+					<input type="hidden" name="step" value="" />
+					<input type="hidden" name="edit" value="update" />
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<!-- BEGIN footer#insert -->
+	<form action="" method="post">
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="hidden" name="bid" value="%{BID}" />
+					<input type="hidden" name="admin" value="user_index" />
+					<input type="submit" name="ACMS_POST_2GET" value="一覧" />
+				</td>
+			</tr>
+		</table>
+	</form><!-- END footer#insert -->
+
+	<!-- BEGIN footer#update -->
+	<form action="" method="post">
+		<table class="adminTable">
+			<tr>
+				<td class="systemBtn">
+					<input type="hidden" name="bid" value="%{BID}" />
+					<input type="hidden" name="uid" value="%{UID}" />
+					<input type="hidden" name="admin" value="user_edit" />
+					<input type="submit" name="ACMS_POST_2GET" value="戻る" />
+				</td>
+			</tr>
+		</table>
+	</form><!-- END footer#update -->
+</div>
+
+<!-- END step#reapply -->
+<!-- END_MODULE Admin_User_Edit -->
+<!--#include file="/admin/tooltip/user.html"-->

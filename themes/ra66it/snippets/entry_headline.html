@@ -1,0 +1,21 @@
+<!-- BEGIN_MODULE Entry_Headline -->
+
+<a href="{indexUrl}">一覧へ</a>
+<a href="{indexUrl}rss2.xml">rss</a>
+<ul><!-- BEGIN entry:loop -->
+	<li><a href="{url}">{title}</a><!-- BEGIN category:veil --> 【{categoryName}】<!-- END category:veil -->{date#Y}年{date#m}月{date#d}日( {date#week} ) {date#h}時{date#i}分{date#s}秒</li><!-- END entry:loop -->
+</ul>
+
+<!-- BEGIN pager:veil -->
+<p>
+	全 {itemsAmount} 件中 {itemsFrom} 〜 {itemsTo} 件目を表示
+	<!-- BEGIN page:loop --><!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->{page}<!-- BEGIN link#rear --></a><!-- END link#rear --><!-- BEGIN glue -->, <!-- END glue --><!-- END page:loop -->
+	<!-- BEGIN lastPage:veil --> ...<a href="{lastPageUrl}">{lastPage}</a><!-- END lastPage:veil -->
+</p>
+<p>
+	<!-- BEGIN backLink --><a href="{url}">&laquo; 前の{backNum}件</a><!-- END backLink -->
+	<!-- BEGIN forwardLink --><a href="{url}">次の{forwardNum}件 &raquo;</a><!-- END forwardLink -->
+</p>
+<!-- END pager:veil -->
+
+<!-- END_MODULE Entry_Headline -->
