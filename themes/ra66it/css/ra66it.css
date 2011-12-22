@@ -47,6 +47,7 @@ header#banner {
 	padding-bottom: 60px;
 	text-align: left;
 	border-bottom: 1px dotted #999999;
+	clear: both;
 }
 #main {
 	width: 90%;
